@@ -1,12 +1,20 @@
-<nav class="navbar navbar-expand-sm bg-purple mb-3 container-fluid fixed-top">
+<nav class="navbar navbar-expand-sm bg-orange mb-3 container-fluid fixed-top">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4" aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <a class="navbar-brand text-dark" href="#">Financial Planner app</a>
+        <% if logged_in? %>
+          <%= link_to "Financial Planner app",current_user, {:class => "nav-brand text-dark"}%>
+        <% else%>
+          <a class="nav-link text-dark" href="/">Financial Planner app</a>
+        <% end %>
         <div class="collapse navbar-collapse justify-content-end">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link text-dark" href="#">Home</a>
+                  <% if logged_in? %>
+                      <%= link_to "Home",current_user, {:class => "nav-link text-dark"}%>
+                  <% else%>
+                    <a class="nav-link text-dark" href="/">Home</a>
+                  <% end %>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link text-dark" href="#">Service</a>
