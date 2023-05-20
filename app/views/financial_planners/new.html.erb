@@ -1,8 +1,8 @@
 <div class="row justify-content-center">
   <div class="col-md-6 col-md-offset-3">
-  <h1>Sign Up</h1>
-    <%= form_with(model: @user) do |f| %>
-      <%= render 'shared/error_messages' %>
+  <h1>Sign Up for FP</h1>
+    <%= form_with(model: @financial_planner) do |f| %>
+      <%= render 'shared/financial_planner_error_messages' %>
 
       <%= f.label :name %>
       <%= f.text_field :name, class: 'form-control' %>
