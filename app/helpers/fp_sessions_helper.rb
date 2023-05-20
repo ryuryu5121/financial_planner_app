@@ -1,0 +1,2 @@
+module FpSessionsHelper
+end
