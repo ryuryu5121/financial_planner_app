@@ -11,7 +11,7 @@ class FinancialPlannersController < ApplicationController
     @financial_planner = FinancialPlanner.new(financial_planner_params)
     if @financial_planner.save
       reset_session
-      log_in @financial_planner
+      fp_log_in @financial_planner
       flash[:success] = "Welcome to the FP App for FP!"
       redirect_to @financial_planner
     else
