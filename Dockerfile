@@ -16,9 +16,3 @@ ADD ./Gemfile.lock ${APP_ROOT}/Gemfile.lock
 RUN bundle install
 
 ADD . ${APP_ROOT}
-
-COPY entrypoint.sh /usr/bin/
-RUN chmod +x /usr/bin/entrypoint.sh
-ENTRYPOINT ["entrypoint.sh"]
-EXPOSE 3000
-CMD ["bundle", "exec", "puma", "-C", "config/puma.rb"]
