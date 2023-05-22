@@ -1,13 +1,13 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+    @reservations = Reservation.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
 
   def new
     @reservation = Reservation.new
     @day = params[:day]
     @time = params[:time]
-    @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
+    @start_time = DateTime.parse("#{@day} #{@time} JST")
   end
 
   def show
@@ -24,6 +24,7 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def reservation_params
     params.require(:reservation).permit(:day, :time, :user_id, :start_time)
   end
