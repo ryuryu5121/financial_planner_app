@@ -8,13 +8,14 @@
     <%= javascript_importmap_tags %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
-
   <body>
-    <div class="container">
+  <%= render 'layouts/header'%>
+    <div class="container flex-column">
       <% flash.each do |message_type, message| %>
         <div class="alert alert-<%= message_type %>"><%= message %></div>
       <% end %>
       <%= yield %>
     </div>
+    <%= render 'layouts/footer'%>
   </body>
 </html>

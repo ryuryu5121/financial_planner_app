@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root 'top_pages#home'
   get 'reservations/index'
   get 'reservations/new'
   get 'reservations/show'
