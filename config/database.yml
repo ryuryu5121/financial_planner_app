@@ -88,3 +88,6 @@ production:
   username: app
   password: <%= ENV["APP_DATABASE_PASSWORD"] %>
   url : <%= ENV["DATABASE_URL"] %>
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
