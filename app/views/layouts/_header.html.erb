@@ -26,9 +26,12 @@
       <li class="nav-item">
         <a class="nav-link text-dark" href="#">Help</a>
       </li>
+      <% if logged_in? %>
+        <%= link_to "reservation", reservations_index_path, {:class => "nav-link text-dark"}%>
+      <% end%>
       <% if fp_logged_in?%>
       <li class="btn btn-success">
-        <%=link_to "reserve", new_schedule_path%>
+        <%=link_to "schedule", new_schedule_path%>
       </li>
       <% end %>
     </ul>

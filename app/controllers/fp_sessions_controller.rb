@@ -9,7 +9,7 @@ class FpSessionsController < ApplicationController
       fp_log_in financial_planner
       redirect_to financial_planner
     else
-      flash.now[:danger] = 'Invalid email/password combination'
+      flash.now[:danger] = '無効なメールアドレス・パスワードです'
       render 'new', status: :unprocessable_entity
     end
   end

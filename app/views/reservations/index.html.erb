@@ -4,10 +4,34 @@
       <h1>予約画面</h1>
       <p>3ヶ月先まで予約することができます。</p>
     </div>
-    <div class="col-12">
-      <%= week_calendar events: @reservations do |date, reservations| %>
-      <%= date.day %>
-      <% end %>
+    <div class="my-5 py-5">
+      <div>
+        <h2>
+          1. 相談したいフィナンシャルプランナーを選択してください
+        </h2>
+      </div>
+      <div class="col-12 d-flex justify-content-center my-3 py-3">
+        <% @financial_planners.each do |financial_planner| %>
+          <%= link_to reservations_index_path(fp_id: financial_planner.id), {:class => "fp-btn m-2"} do%>
+            <%= financial_planner.name %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    </div>
+    <div class="my-5 py-5">
+      <div>
+        <h2>
+          2. 日時を指定してください
+        </h2>
+      </div>
+      <div class="col-12">
+        <% if params[:fp_id]%>
+          <%= week_calendar events: @reservations do |date, reservations|%>
+            <%= date.day %>
+          <% end %>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>

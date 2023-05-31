@@ -13,7 +13,7 @@ class FinancialPlannersController < ApplicationController
     if @financial_planner.save
       reset_session
       fp_log_in @financial_planner
-      flash[:success] = "Welcome to the FP App for FP!"
+      flash[:success] = "FP向けFP App管理画面へようこそ！!"
       redirect_to @financial_planner
     else
       render 'new', status: :unprocessable_entity
