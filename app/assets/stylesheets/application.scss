@@ -853,13 +853,11 @@ Entry
 
 }
 
-
 .section-title {
   font-weight: normal;
   line-height: 1;
   margin-bottom: 50px;
 }
-
 
 input, textarea, select, .uneditable-input {
   border: 1px solid #bbb;
@@ -868,11 +866,9 @@ input, textarea, select, .uneditable-input {
 
 }
 
-
 input {
   height: auto !important;
 }
-
 
 #error_explanation {
   color: red;
@@ -882,7 +878,6 @@ input {
   }
 
 }
-
 
 //勤怠登録用フォーム//
 
@@ -978,4 +973,3 @@ input[type="date"].cal {
   box-shadow:  41px 41px 94px #c9c9c9,
                -41px -41px 94px #ffffff;
 }
-
