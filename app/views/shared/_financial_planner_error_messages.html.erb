@@ -1,12 +1,12 @@
 <% if @financial_planner.errors.any? %>
-<div id="error_explanation">
-  <div class="alert alert-danger">
-    The form contains <%= pluralize(@financial_planner.errors.count, "error") %>.
+  <div id="error_explanation">
+    <div class="alert alert-danger">
+      The form contains <%= pluralize(@financial_planner.errors.count, "error") %>.
+    </div>
+    <ul>
+      <% @financial_planner.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
   </div>
-  <ul>
-    <% @financial_planner.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
 <% end %>
