@@ -41,4 +41,10 @@ module ReservationsHelper
       Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
     end
   end
+
+  def check_date_before_today(day)
+    if day < Date.today
+      return true
+    end
+  end
 end

@@ -27,6 +27,12 @@ class ReservationsController < ApplicationController
     end
   end
 
+  def destroy
+    Reservation.find(params[:id]).destroy
+    flash[:success] = "予約データを削除しました"
+    redirect_to current_user, status: :see_other
+  end
+
   private
   def reservation_params
     params.require(:reservation).permit(:day, :time, :user_id, :start_time, :fp_id)
