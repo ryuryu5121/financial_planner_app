@@ -1,0 +1,230 @@
+Offenses:
+
+Gemfile:48:34: C: [Correctable] Layout/SpaceInsidePercentLiteralDelimiters: Do not use spaces inside percent literal delimiters.
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+                                 ^
+Gemfile:48:62: C: [Correctable] Layout/SpaceInsidePercentLiteralDelimiters: Do not use spaces inside percent literal delimiters.
+gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
+                                                             ^
+Gemfile:61:30: C: [Correctable] Layout/SpaceInsidePercentLiteralDelimiters: Do not use spaces inside percent literal delimiters.
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+                             ^
+Gemfile:61:50: C: [Correctable] Layout/SpaceInsidePercentLiteralDelimiters: Do not use spaces inside percent literal delimiters.
+  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+                                                 ^
+app/controllers/financial_planners_controller.rb:6:3: C: [Correctable] Rails/ActionOrder: Action show should appear before new.
+  def show ...
+  ^^^^^^^^
+app/controllers/financial_planners_controller.rb:8:121: C: [Correctable] Layout/LineLength: Line is too long. [121/120]
+    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+                                                                                                                        ^
+app/controllers/financial_planners_controller.rb:16:25: C: Rails/I18nLocaleTexts: Move locale texts to the locale files in the config/locales directory.
+      flash[:success] = "FP向けFP App管理画面へようこそ！!"
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/financial_planners_controller.rb:29:1: C: [Correctable] Layout/TrailingEmptyLines: 1 trailing blank lines detected.
+app/controllers/fp_sessions_controller.rb:2:3: C: [Correctable] Style/EmptyMethod: Put empty method definitions on a single line.
+  def new ...
+  ^^^^^^^
+app/controllers/fp_sessions_controller.rb:7:8: C: [Correctable] Style/SafeNavigation: Use safe navigation (&.) instead of checking if an object exists before calling the method.
+    if financial_planner && financial_planner.authenticate(params[:session][:password])
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/reservations_controller.rb:2:3: C: Metrics/AbcSize: Assignment Branch Condition size for index is too high. [<5, 23, 1> 23.56/17]
+  def index ...
+  ^^^^^^^^^
+app/controllers/reservations_controller.rb:3:84: C: [Correctable] Rails/PluralizationGrammar: Prefer 3.months.
+    @reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: params[:fp_id]).order(day: :desc)
+                                                                                   ^^^^^^^
+app/controllers/reservations_controller.rb:3:121: C: Layout/LineLength: Line is too long. [140/120]
+    @reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: params[:fp_id]).order(day: :desc)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^
+app/controllers/reservations_controller.rb:6:88: C: [Correctable] Rails/PluralizationGrammar: Prefer 3.months.
+    @select_fp_schedules = Schedule.all.where(day: (Date.current)..(Date.current.since(3.month))).where(FP_id: params[:fp_id]).order(day: :desc)
+                                                                                       ^^^^^^^
+app/controllers/reservations_controller.rb:6:121: C: Layout/LineLength: Line is too long. [144/120]
+    @select_fp_schedules = Schedule.all.where(day: (Date.current)..(Date.current.since(3.month))).where(FP_id: params[:fp_id]).order(day: :desc)
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/reservations_controller.rb:14:34: C: [Correctable] Style/StringConcatenation: Prefer string interpolation to string concatenation.
+    @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/reservations_controller.rb:17:3: C: [Correctable] Rails/ActionOrder: Action show should appear before new.
+  def show ...
+  ^^^^^^^^
+app/controllers/reservations_controller.rb:30:3: C: [Correctable] Layout/EmptyLinesAroundAccessModifier: Keep a blank line before and after private.
+  private
+  ^^^^^^^
+app/controllers/schedules_controller.rb:7:50: C: [Correctable] Layout/SpaceAfterComma: Space missing after comma.
+    @schedule = Schedule.new(FP_id: current_fp.id,**schedule_params)
+                                                 ^
+app/controllers/schedules_controller.rb:9:25: C: Rails/I18nLocaleTexts: Move locale texts to the locale files in the config/locales directory.
+      flash[:success] = "勤怠の登録が完了しました！"
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/sessions_controller.rb:2:3: C: [Correctable] Style/EmptyMethod: Put empty method definitions on a single line.
+  def new ...
+  ^^^^^^^
+app/controllers/sessions_controller.rb:7:8: C: [Correctable] Style/SafeNavigation: Use safe navigation (&.) instead of checking if an object exists before calling the method.
+    if user && user.authenticate(params[:session][:password])
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/controllers/top_pages_controller.rb:2:3: C: [Correctable] Style/EmptyMethod: Put empty method definitions on a single line.
+  def home ...
+  ^^^^^^^^
+app/controllers/users_controller.rb:6:3: C: [Correctable] Rails/ActionOrder: Action show should appear before new.
+  def show ...
+  ^^^^^^^^
+app/controllers/users_controller.rb:15:25: C: Rails/I18nLocaleTexts: Move locale texts to the locale files in the config/locales directory.
+      flash[:success] = "FP Appへようこそ!"
+                        ^^^^^^^^^^^^^^^^^^^
+app/controllers/users_controller.rb:22:3: C: [Correctable] Layout/EmptyLinesAroundAccessModifier: Keep a blank line before and after private.
+  private
+  ^^^^^^^
+app/helpers/fp_sessions_helper.rb:7:5: C: [Correctable] Style/GuardClause: Use a guard clause (return unless session[:fp_id]) instead of wrapping the code inside a conditional expression.
+    if session[:fp_id]
+    ^^
+app/helpers/fp_sessions_helper.rb:7:5: C: [Correctable] Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if session[:fp_id]
+    ^^
+app/helpers/fp_sessions_helper.rb:18:5: C: Rails/HelperInstanceVariable: Do not use instance variables in helpers.
+    @current_fp = nil
+    ^^^^^^^^^^^
+app/helpers/reservations_helper.rb:2:3: C: Metrics/MethodLength: Method has too many lines. [16/10]
+  def times ...
+  ^^^^^^^^^
+app/helpers/reservations_helper.rb:3:5: W: [Correctable] Lint/UselessAssignment: Useless assignment to variable - times.
+    times = [
+    ^^^^^
+app/helpers/reservations_helper.rb:4:14: C: [Correctable] Layout/FirstArrayElementIndentation: Use 2 spaces for indentation in an array, relative to the start of the line where the left square bracket is.
+             "10:00",
+             ^^^^^^^
+app/helpers/reservations_helper.rb:18:13: C: [Correctable] Layout/FirstArrayElementIndentation: Indent the right bracket the same as the start of the line where the left bracket is.
+            ]
+            ^
+app/helpers/reservations_helper.rb:21:3: C: Metrics/AbcSize: Assignment Branch Condition size for check_reservation is too high. [<5, 14, 9> 17.38/17]
+  def check_reservation(reservations, day, time) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/reservations_helper.rb:21:3: C: Metrics/CyclomaticComplexity: Cyclomatic complexity for check_reservation is too high. [8/7]
+  def check_reservation(reservations, day, time) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/reservations_helper.rb:21:3: C: Metrics/MethodLength: Method has too many lines. [12/10]
+  def check_reservation(reservations, day, time) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/reservations_helper.rb:21:3: C: Metrics/PerceivedComplexity: Perceived complexity for check_reservation is too high. [9/8]
+  def check_reservation(reservations, day, time) ...
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/reservations_helper.rb:34:5: C: [Correctable] Style/RedundantReturn: Redundant return detected.
+    return result
+    ^^^^^^
+app/helpers/reservations_helper.rb:38:39: C: [Correctable] Style/HashSyntax: Omit the hash value.
+    select_day = schedules.where(day: day)
+                                      ^^^
+app/helpers/reservations_helper.rb:40:5: C: [Correctable] Style/GuardClause: Use a guard clause (return unless (select_day_count == 1)) instead of wrapping the code inside a conditional expression.
+    if (select_day_count == 1)
+    ^^
+app/helpers/reservations_helper.rb:40:8: C: [Correctable] Style/ParenthesesAroundCondition: Don't use parentheses around the condition of an if.
+    if (select_day_count == 1)
+       ^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/reservations_helper.rb:41:12: C: [Correctable] Rails/TimeZone: Do not use Time.parse without zone. Use one of Time.zone.parse, Time.current, Time.parse.in_time_zone, Time.parse.utc, Time.parse.getlocal, Time.parse.xmlschema, Time.parse.iso8601, Time.parse.jisx0301, Time.parse.rfc3339, Time.parse.httpdate, Time.parse.to_i, Time.parse.to_f instead.
+      Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
+           ^^^^^
+app/helpers/reservations_helper.rb:41:38: C: [Correctable] Rails/TimeZone: Do not use Time.parse without zone. Use one of Time.zone.parse, Time.current, Time.parse.in_time_zone, Time.parse.utc, Time.parse.getlocal, Time.parse.xmlschema, Time.parse.iso8601, Time.parse.jisx0301, Time.parse.rfc3339, Time.parse.httpdate, Time.parse.to_i, Time.parse.to_f instead.
+      Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
+                                     ^^^^^
+app/helpers/reservations_helper.rb:41:99: C: [Correctable] Rails/TimeZone: Do not use Time.parse without zone. Use one of Time.zone.parse, Time.current, Time.parse.in_time_zone, Time.parse.utc, Time.parse.getlocal, Time.parse.xmlschema, Time.parse.iso8601, Time.parse.jisx0301, Time.parse.rfc3339, Time.parse.httpdate, Time.parse.to_i, Time.parse.to_f instead.
+      Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
+                                                                                                  ^^^^^
+app/helpers/reservations_helper.rb:41:121: C: [Correctable] Layout/LineLength: Line is too long. [151/120]
+      Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
+                                                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/helpers/sessions_helper.rb:7:5: C: [Correctable] Style/GuardClause: Use a guard clause (return unless session[:user_id]) instead of wrapping the code inside a conditional expression.
+    if session[:user_id]
+    ^^
+app/helpers/sessions_helper.rb:7:5: C: [Correctable] Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if session[:user_id]
+    ^^
+app/helpers/sessions_helper.rb:18:5: C: Rails/HelperInstanceVariable: Do not use instance variables in helpers.
+    @current_user = nil
+    ^^^^^^^^^^^^^
+app/models/financial_planner.rb:5:3: C: Rails/UniqueValidationWithoutIndex: Uniqueness validation should have a unique index on the database column.
+  validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/models/reservation.rb:4:83: C: [Correctable] Rails/PluralizationGrammar: Prefer 3.months.
+    reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month)))
+                                                                                  ^^^^^^^
+app/models/reservation.rb:7:7: C: [Correctable] Layout/SpaceInsideHashLiteralBraces: Space inside { missing.
+      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
+      ^
+app/models/reservation.rb:7:73: C: [Correctable] Layout/SpaceInsideHashLiteralBraces: Space inside } missing.
+      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
+                                                                        ^
+app/models/reservation.rb:12:5: W: [Correctable] Lint/UselessAssignment: Useless assignment to variable - schedule.
+    schedule = Schedule.all.where(FP_id: financial_planners_id)
+    ^^^^^^^^
+app/models/reservation.rb:16:83: C: [Correctable] Rails/PluralizationGrammar: Prefer 3.months.
+    reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: fp_id).order(day: :desc)
+                                                                                  ^^^^^^^
+app/models/reservation.rb:16:107: C: [Correctable] Style/HashSyntax: Omit the hash value.
+    reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: fp_id).order(day: :desc)
+                                                                                                          ^^^^^
+app/models/reservation.rb:16:121: C: Layout/LineLength: Line is too long. [130/120]
+    reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: fp_id).order(day: :desc)
+                                                                                                                        ^^^^^^^^^^
+app/models/reservation.rb:18:7: C: [Correctable] Layout/SpaceInsideHashLiteralBraces: Space inside { missing.
+      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
+      ^
+app/models/reservation.rb:18:73: C: [Correctable] Layout/SpaceInsideHashLiteralBraces: Space inside } missing.
+      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
+                                                                        ^
+app/models/schedule.rb:11:5: C: [Correctable] Style/GuardClause: Use a guard clause (return unless start_time >= end_time) instead of wrapping the code inside a conditional expression.
+    if start_time >= end_time
+    ^^
+app/models/schedule.rb:11:5: C: [Correctable] Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if start_time >= end_time
+    ^^
+app/models/schedule.rb:15:3: C: [Correctable] Layout/EmptyLineBetweenDefs: Expected 1 empty line between method definitions; found 0.
+  def day_cannot_be_before_today
+  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+app/models/schedule.rb:16:5: C: [Correctable] Style/GuardClause: Use a guard clause (return unless day <= Date.zone.today) instead of wrapping the code inside a conditional expression.
+    if day <= Date.zone.today
+    ^^
+app/models/schedule.rb:16:5: C: [Correctable] Style/IfUnlessModifier: Favor modifier if usage when having a single-line body. Another good alternative is the usage of control flow &&/||.
+    if day <= Date.zone.today
+    ^^
+app/models/schedule.rb:16:20: C: Rails/Date: Do not use Date.today without zone. Use Time.zone.today instead.
+    if day <= Date.zone.today
+                   ^^^^
+app/models/user.rb:12:1: C: [Correctable] Layout/EmptyLines: Extra blank line detected.
+app/models/user.rb:13:7: C: [Correctable] Style/ClassMethods: Use self.digest instead of User.digest.
+  def User.digest(string)
+      ^^^^
+app/models/user.rb:15:43: C: [Correctable] Style/HashSyntax: Omit the hash value.
+    BCrypt::Password.create(string, cost: cost)
+                                          ^^^^
+app/models/user.rb:17:1: C: [Correctable] Layout/EmptyLinesAroundClassBody: Extra empty line detected at class body end.
+config/environments/production.rb:56:22: C: [Correctable] Layout/SpaceInsideArrayLiteralBrackets: Do not use space inside array brackets.
+  config.log_tags = [ :request_id ]
+                     ^
+config/environments/production.rb:56:34: C: Layout/SpaceInsideArrayLiteralBrackets: Do not use space inside array brackets.
+  config.log_tags = [ :request_id ]
+                                 ^
+config/environments/production.rb:79:26: C: [Correctable] Style/RedundantConstantBase: Remove redundant ::.
+  config.log_formatter = ::Logger::Formatter.new
+                         ^^
+config/environments/production.rb:86:50: C: [Correctable] Style/GlobalStdStream: Use $stdout instead of STDOUT.
+    logger           = ActiveSupport::Logger.new(STDOUT)
+                                                 ^^^^^^
+config/initializers/assets.rb:14:47: C: [Correctable] Style/PercentLiteralDelimiters: %w-literals should be delimited by [ and ].
+Rails.application.config.assets.precompile += %w(bootstrap.min.js popper.js)
+                                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+config/initializers/filter_parameter_logging.rb:6:47: C: [Correctable] Style/SymbolArray: Use %i or %I for an array of symbols.
+Rails.application.config.filter_parameters += [ ...
+                                              ^
+config/puma.rb:7:25: C: [Correctable] Style/RedundantFetchBlock: Use fetch("RAILS_MAX_THREADS", 5) instead of fetch("RAILS_MAX_THREADS") { 5 }.
+max_threads_count = ENV.fetch("RAILS_MAX_THREADS") { 5 }
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+config/puma.rb:18:10: C: [Correctable] Style/RedundantFetchBlock: Use fetch("PORT", 3000) instead of fetch("PORT") { 3000 }.
+port ENV.fetch("PORT") { 3000 }
+         ^^^^^^^^^^^^^^^^^^^^^^
+db/migrate/20230508030759_add_index_to_users_email.rb:2:3: C: [Correctable] Style/EmptyMethod: Put empty method definitions on a single line.
+  def change ...
+  ^^^^^^^^^^
+
+65 files inspected, 77 offenses detected, 60 offenses autocorrectable
+oshima.ryusei@mf-2599-mm01: ~/work/financial_planner_app (User_reservation *$)$
