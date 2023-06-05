@@ -5,45 +5,41 @@
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
     <% reservations = Reservation.fp_reservations(@choice_fp) %>
   </div>
-  <div>
-  </div>
   <table class="table table-hover">
     <thead>
       <tr>
         <th>時間</th>
         <% date_range.slice(0, 7).each do |day| %>
-        <th><%= t('date.abbr_day_names')[day.wday] %></th>
+          <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
     <tbody>
       <% date_range.each_slice(7) do |week| %>
-      <tr>
-        <td></td>
-        <% week.each do |day| %>
-          <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% passed_block.call day, sorted_events.fetch(day, []) %>
+        <tr>
+          <td></td>
+          <% week.each do |day| %>
+            <%= content_tag :td, class: calendar.td_classes_for(day) do %>
+                <% passed_block.call day, sorted_events.fetch(day, []) %>
+            <% end %>
           <% end %>
+        </tr>
+        <% times.each do |time| %>
+          <tr>
+            <td><%= time %></td>
+            <% week.each do |day| %>
+              <td>
+                <% if check_reservation(reservations, day, time) || check_schedule(@select_fp_schedules, day, time) || check_date_before_today(day)%>
+                  <%= '×' %>
+                <% else %>
+                  <%= link_to new_reservation_path(day: day, time: time, fp_id: @choice_fp) do %>
+                    <%= '○' %>
+                  <% end %>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
         <% end %>
-      </tr>
-      <% times.each do |time| %>
-      <tr>
-        <td><%= time %></td>
-        <% week.each do |day| %>
-        <td>
-          <% if check_reservation(reservations, day, time) || check_schedule(@select_fp_schedules, day, time) || check_date_before_today(day)%>
-            <%= '×' %>
-          <% else %>
-          <!-- 追加 -->
-          <%= link_to new_reservation_path(day: day, time: time, fp_id: @choice_fp) do %>
-            <%= '○' %>
-          <% end %>
-          <!-- ここまで -->
-          <% end %>
-        </td>
-        <% end %>
-      </tr>
-      <% end %>
       <% end %>
     </tbody>
   </table>
