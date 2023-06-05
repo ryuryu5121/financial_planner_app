@@ -14,13 +14,12 @@
 @import "bootstrap";
 @import "simple_calendar";
 
-
 h1 {
     font-size: 3em;
     letter-spacing: -2px;
     margin-bottom: 30px;
     text-align: center;
-  }
+}
 
 .container {
   min-height: 100vh;
@@ -34,22 +33,27 @@ body {
 html {
   font-size: 100%;
 }
+
 body {
   color: #333;
   font-family: "游ゴシック体", "YuGothic", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
   letter-spacing: 0.1em;
 }
+
 a {
   color: #333;
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
   vertical-align: bottom;
 }
+
 li {
   list-style: none;
 }
+
 /*
 コンテンツ幅を設定するための共通クラス
 */
@@ -58,6 +62,7 @@ li {
   max-width: 860px;
   margin: 0 auto;
 }
+
 /*
 セクションタイトル用の共通クラス
 */
@@ -67,6 +72,7 @@ li {
   text-align: center;
   position: relative;
 }
+
 /* 疑似要素でタイトル下に下線を引く */
 .section-title::after {
   content: "";
@@ -90,6 +96,7 @@ Mainvisual
   margin-bottom: 120px;
   margin-top: 200px;
 }
+
 /*
 テキストとボタンが画像の上に表示されるように「z-index」を設定
 */
@@ -98,6 +105,7 @@ Mainvisual
   left: 10%;
   z-index: 10;
 }
+
 /*
 「text-shadow」で文字の輪郭に白い影をつけることで、
 文字が背景画像に埋もれないようにする
@@ -108,6 +116,7 @@ Mainvisual
   margin-bottom: 30px;
   text-shadow: 0 4px 6px #fff;
 }
+
 #mainvisual .text .btn {
   background-color: #ff2a2a;
   /* 文字の下に影をつけてボタンに立体感を出す */
@@ -121,6 +130,7 @@ Mainvisual
   transition: 0.3s;
   position: relative;
 }
+
 /*
 ボタンの右矢印
 上と右にボーダーを設定し、「transform: rotate(45deg)」で
@@ -138,6 +148,7 @@ positionで位置を調整する
   top: 26px;
   right: 30px;
 }
+
 /*
 ホバー時は、opacityで透過させながら「transform: scale(1.05);」で
 少しだけボタンのサイズを大きくする
@@ -146,6 +157,7 @@ positionで位置を調整する
   opacity: 0.9;
   transform: scale(1.05);
 }
+
 /*
 メインビジュアル
 animationを使用して、画像をフェードイン、フェードアウトで切り替えを行う
@@ -169,6 +181,7 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
   */
   animation: fade 15s infinite;
 }
+
 /*
 1枚目の画像のアニメーション実行タイミングを設定
 「animation-delay: 0s;」ですぐに実行
@@ -176,6 +189,7 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
 #mainvisual .fade li:nth-child(1) {
   animation-delay: 0s;
 }
+
 /*
 2枚目の画像のアニメーション実行タイミングを設定
 「animation-delay: 5s;」で5秒後に実行
@@ -183,6 +197,7 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
 #mainvisual .fade li:nth-child(2) {
   animation-delay: 5s;
 }
+
 /*
 3枚目の画像のアニメーション実行タイミングを設定
 「animation-delay: 10s;」で10秒後に実行
@@ -190,11 +205,13 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
 #mainvisual .fade li:nth-child(3) {
   animation-delay: 10s;
 }
+
 #mainvisual .fade li img {
   width: 100%;
   height: 720px;
   object-fit: cover;
 }
+
 /*
 「box-shadow」で画像のまわりをぼかす
 */
@@ -207,6 +224,7 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
   right: 0;
   box-shadow: inset 0px 0px 20px 20px #fff;
 }
+
 /*
 アニメーション処理
 上の「animation」で15sを指定しているので下記の処理を15秒かけて実行
@@ -222,19 +240,25 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
   0% {
     opacity: 0;
   }
+
   15% {
     opacity: 1;
   }
+
   30% {
     opacity: 1;
   }
+
   45% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
+
 }
+
 
 /*-------------------------------------------
 Reason
@@ -242,10 +266,12 @@ Reason
 #reason {
   margin-bottom: 120px;
 }
+
 #reason .bg {
   background-color: #ff2a2a;
   padding: 80px 0;
 }
+
 /*
 スライド左右共通
 最初は「opacity: 0;」で非表示にしておく
@@ -259,26 +285,31 @@ Reason
   padding: 5%;
   opacity: 0;
 }
+
 #reason .slide img {
   width: auto;
   height: 60px;
   margin-right: 30px;
 }
+
 #reason .slide .title {
   color: #ff2a2a;
   display: block;
   font-size: 1.75rem;
   font-weight: bold;
 }
+
 #reason .slide .text {
   display: block;
   font-size: 1.125rem;
 }
+
 #reason .inview-slide-left {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 40px;
 }
+
 /*
 アニメーション（スライド左）を実行
 
@@ -292,6 +323,7 @@ forwards：アニメーション終了時の状態をそのまま維持
 #reason .slide-left {
   animation: slide-left 0.5s ease-out 0s 1 forwards;
 }
+
 /*
 アニメーション処理
 
@@ -302,15 +334,19 @@ forwards：アニメーション終了時の状態をそのまま維持
   0% {
     transform: translateX(-50%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
+
 }
+
 #reason .inview-slide-right {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
 /*
 アニメーション（スライド右）を実行
 
@@ -319,15 +355,19 @@ forwards：アニメーション終了時の状態をそのまま維持
 #reason .slide-right {
   animation: slide-right 0.5s ease-out 0s 1 forwards;
 }
+
 @keyframes slide-right {
   0% {
     transform: translateX(150%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(100%);
   }
+
 }
+
 
 /*-------------------------------------------
 Voice
@@ -335,6 +375,7 @@ Voice
 #voice {
   margin-bottom: 120px;
 }
+
 #voice .item-left,
 #voice .item-right {
   display: flex;
@@ -342,25 +383,31 @@ Voice
   opacity: 0;
   margin-bottom: 60px;
 }
+
 #voice .item-left {
   justify-content: flex-start;
 }
+
 #voice .item-left:last-of-type {
   margin-bottom: 0;
 }
+
 #voice .item-right {
   justify-content: flex-end;
 }
+
 #voice .student img {
   width: 120px;
   background-color: #ccc;
   border-radius: 50%;
   margin-bottom: 10px;
 }
+
 #voice .student .name {
   font-size: 0.75rem;
   text-align: center;
 }
+
 /* ふきだしを設定 */
 #voice .item-left .balloon-text,
 #voice .item-right .balloon-text {
@@ -372,9 +419,11 @@ Voice
   padding: 20px;
   position: relative;
 }
+
 #voice .item-left .balloon-text {
   margin-left: 25px;
 }
+
 /* 左のふきだしの矢印部分を設定 */
 #voice .item-left .balloon-text::before {
   content: "";
@@ -385,9 +434,11 @@ Voice
   border: 15px solid transparent;
   border-right: 15px solid #e9f1fb;
 }
+
 #voice .item-right .balloon-text {
   margin-right: 25px;
 }
+
 /* 右のふきだしの矢印部分を設定 */
 #voice .item-right .balloon-text::before {
   content: "";
@@ -398,6 +449,7 @@ Voice
   border: 15px solid transparent;
   border-left: 15px solid #e9f1fb;
 }
+
 /*
 アニメーションを実行
 
@@ -411,6 +463,7 @@ forwards：アニメーション終了時の状態をそのまま維持
 #voice .balloon {
   animation: balloon 0.5s ease-out 0s 1 forwards;
 }
+
 /*
 アニメーション処理
 
@@ -422,11 +475,14 @@ forwards：アニメーション終了時の状態をそのまま維持
     transform: scale(0.1);
     opacity: 0;
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
   }
+
 }
+
 
 /*-------------------------------------------
 Summary
@@ -445,6 +501,7 @@ linear：アニメーションの変化（開始から終了まで一定に変�
   padding: 60px 0;
   margin-bottom: 120px;
 }
+
 /*
 アニメーション処理
 
@@ -454,15 +511,19 @@ linear：アニメーションの変化（開始から終了まで一定に変�
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: -700px 700px;
   }
+
 }
+
 #summary .menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 #summary .menu li {
   width: 48%;
   background-color: #fff;
@@ -470,25 +531,30 @@ linear：アニメーションの変化（開始から終了まで一定に変�
   padding: 60px;
   margin-bottom: 32px;
 }
+
 /* 3つ目以降はmargin-bottomを設定しない */
 #summary .menu li:nth-child(n + 3) {
   margin-bottom: 0;
 }
+
 #summary .menu-title {
   font-weight: bold;
   line-height: 1;
   text-align: center;
 }
+
 #summary .menu-title .ja {
   display: block;
   font-size: 1.75rem;
   margin-bottom: 15px;
 }
+
 #summary .menu-title .en {
   display: block;
   font-size: 1.125rem;
   margin-bottom: 30px;
 }
+
 
 /*-------------------------------------------
 Entry
@@ -497,15 +563,18 @@ Entry
   margin-bottom: 120px;
   text-align: center;
 }
+
 #entry .title {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
+
 #entry .catchphrase {
   font-size: 1.125rem;
   margin-bottom: 40px;
 }
+
 #entry .btn {
   background-color: #ff2a2a;
   border-radius: 40px;
@@ -518,11 +587,13 @@ Entry
   text-align: center;
   transition: 0.3s;
 }
+
 #entry .btn:hover {
   background-color: #fff;
   border: solid 3px #ff2a2a;
   color: #ff2a2a;
 }
+
 
 /*-------------------------------------------
 フッター
@@ -533,6 +604,7 @@ Entry
   margin-top: auto;
 
 }
+
 #footer a {
   font-size: 0.875rem;
   /*
@@ -540,30 +612,38 @@ Entry
   */
   transition: 0.3s;
 }
+
 #footer a:hover {
   opacity: 0.7;
 }
+
 #footer .inner {
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
 }
+
 #footer .inner > li {
   width: 25%;
 }
+
 #footer .inner .title {
   font-weight: bold;
 }
+
 #footer .inner .menu {
   padding: 10px 0 0 10px;
 }
+
 #footer .inner .menu li {
   margin-bottom: 3px;
 }
+
 #footer .copyright {
   font-size: 0.625rem;
   text-align: center;
 }
+
 
 /*-------------------------------------------
 SP
@@ -572,13 +652,16 @@ SP
   .wrapper {
     padding: 0 16px;
   }
+
   .section-title {
     font-size: 1.75rem;
     margin-bottom: 60px;
   }
+
   .section-title::after {
     width: 80px;
   }
+
 
 /*-------------------------------------------
 ヘッダー
@@ -591,25 +674,31 @@ Mainvisual
   height: 490px;
   margin-bottom: 80px;
 }
+
 #mainvisual .fade li {
   width: 100%;
 }
+
 #mainvisual .fade li img {
   height: 300px;
 }
+
 #mainvisual .text {
   /* 両端に16pxづつ余白を作る */
   width: calc(100% - 32px);
   top: 310px;
   left: 16px;
 }
+
 #mainvisual .text .title {
   font-size: 1.75rem;
   margin-bottom: 10px;
 }
+
 #mainvisual .text .btn {
   width: 100%;
 }
+
 
 /*-------------------------------------------
 Reason
@@ -617,33 +706,43 @@ Reason
 #reason {
   margin-bottom: 80px;
 }
+
 #reason .bg {
   padding: 40px 0;
 }
+
 #reason .slide {
   width: calc(100% - 16px);
 }
+
 #reason .slide .title {
   font-size: 1.5rem;
 }
+
 @keyframes slide-left {
   0% {
     transform: translateX(-100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(0);
   }
+
 }
+
 @keyframes slide-right {
   0% {
     transform: translateX(100%);
   }
+
   100% {
     opacity: 1;
     transform: translateX(16px);
   }
+
 }
+
 
 /*-------------------------------------------
 Voice
@@ -651,26 +750,32 @@ Voice
 #voice {
   margin-bottom: 80px;
 }
+
 #voice .student {
   text-align: center;
 }
+
 #voice .item-left,
 #voice .item-right {
   margin-bottom: 40px;
 }
+
 #voice .item-left {
   flex-direction: column-reverse;
   align-items: center;
 }
+
 #voice .item-right {
   flex-direction: column;
   align-items: center;
 }
+
 #voice .item-left .balloon-text,
 #voice .item-right .balloon-text {
   width: 100%;
   margin: 0 0 30px 0;
 }
+
 /*
 スマホの場合はふきだしの向きを下に変える
 */
@@ -680,12 +785,15 @@ Voice
   border: 15px solid transparent;
   border-top: 15px solid #e9f1fb;
 }
+
 #voice .item-left .balloon-text::before {
   margin-left: calc(50% - 15px);
 }
+
 #voice .item-right .balloon-text::before {
   margin-right: calc(50% - 15px);
 }
+
 
 /*-------------------------------------------
 Summary
@@ -693,22 +801,28 @@ Summary
 #summary {
   margin-bottom: 80px;
 }
+
 #summary .menu {
   flex-direction: column;
 }
+
 #summary .menu li {
   width: 100%;
   padding: 30px;
 }
+
 #summary .menu li:nth-child(3) {
   margin-bottom: 32px;
 }
+
 #summary .menu-title .ja {
   font-size: 1.5rem;
 }
+
 #summary .menu-title .en {
   font-size: 1rem;
 }
+
 
 /*-------------------------------------------
 Entry
@@ -716,15 +830,19 @@ Entry
 #entry {
   margin-bottom: 80px;
 }
+
 #entry .title {
   font-size: 1.5rem;
 }
+
 #entry .catchphrase {
   font-size: 1rem;
 }
+
 #entry .btn{
   font-size: 1.5rem;
 }
+
 
 /*-------------------------------------------
 フッター
@@ -755,6 +873,7 @@ input {
     color: red;
     margin: 0 0 30px 0;
   }
+
 }
 
 //勤怠登録用フォーム//
@@ -764,23 +883,28 @@ input {
 	margin: 0 auto;
 	padding: 0;
 }
+
 .date-table {
 	border-collapse: collapse;
 }
+
 .date-table th {
 	color: #53a034;
 	padding: 15px 20px 0 0;
 	vertical-align: top;
 	white-space: nowrap;
 }
+
 .date-table td {
 	padding: 0 0 1.5em 0;
 }
+
 .cal-wrap {
 	position: relative;
 	cursor: pointer;
 	margin: 0 15px 0 0;
 }
+
 .cal-wrap:before {
 	content: "";
 	background: url(icon_calendar.svg) no-repeat;
@@ -793,6 +917,7 @@ input {
 	left: 10px;
 	margin: auto;
 }
+
 input[type="date"].cal {
 	font-size: 18px;
 	outline: none;
@@ -806,6 +931,7 @@ input[type="date"].cal {
 	box-sizing: border-box;
 	border: 2px solid #ccc;
 }
+
 .time-select {
 	font-size: 18px;
 	outline: none;
@@ -817,6 +943,7 @@ input[type="date"].cal {
 	box-sizing: border-box;
 	border: 2px solid #ccc;
 }
+
 .btn-style {
 	background: #53a034;
 	border-radius: 40px;
@@ -830,6 +957,7 @@ input[type="date"].cal {
 	max-width: 200px;
 	text-decoration: none;
 }
+
 .error_txt {
 	display: block;
 	margin: .3em 0 0 0;
