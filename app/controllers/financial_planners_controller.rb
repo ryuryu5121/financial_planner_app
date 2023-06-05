@@ -5,7 +5,10 @@ class FinancialPlannersController < ApplicationController
 
   def show
     @financial_planner = FinancialPlanner.find(params[:id])
-    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
+    @status = params[:status]
+    @financial_planner_before_reservations = Reservation.where(fp_id: current_fp.id).where(day: (Date.current)..(Date.current.since(3.month)))
+    @financial_planner_after_reservations = Reservation.where(fp_id: current_fp.id).where("day <= ?", Date.current)
+    @select_fp_schedules = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: current_fp.id).order(day: :desc)
   end
 
   def create

@@ -15,7 +15,7 @@ class Reservation < ApplicationRecord
   def self.fp_reservations(fp_id)
     reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: fp_id).order(day: :desc)
     reservations.map do |reservation|
-      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
+      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time, user_id: reservation.user_id}
     end
   end
 end

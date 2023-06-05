@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @user_reservations = Reservation.where(user_id: current_user.id)
+    @status = params[:status]
+    @user_before_reservations = Reservation.where(user_id: current_user.id).where(day: (Date.current)..(Date.current.since(3.month)))
+    @user_after_reservations = Reservation.where(user_id: current_user.id).where("day <= ?", Date.current)
   end
 
   def create
