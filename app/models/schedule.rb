@@ -15,7 +15,7 @@ class Schedule < ApplicationRecord
 
   def day_cannot_be_before_today
     if day <= Date.today
-      errors.add(:day, "ご指定の日程では登録できません。本日より先の日程にご予約ください")
+      errors.add(:day, "ご指定の日程では予約できません。本日より先の日程にご予約ください")
     end
   end
 end
