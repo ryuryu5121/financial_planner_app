@@ -1,7 +1,7 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
     <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
-      <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
+    <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
     <% reservations = Reservation.reservations_after_three_month %>
   </div>
@@ -20,30 +20,26 @@
           <td></td>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
             <% end %>
           <% end %>
         </tr>
         <% times.each do |time| %>
           <tr>
             <td><%= time %></td>
-            <% week.each do |day| %>
-              <td>
-                <% if check_reservation(reservations, day, time) %>
-                  <%= '×' %>
-                <% else %>
+              <% week.each do |day| %>
+                <td>
+                  <% if check_reservation(reservations, day, time) %>
+                    <%= '×' %>
+                  <% else %>
                   <!-- 追加 -->
-                  <%= link_to new_reservation_path(day: day, time: time) do %>
-                    <%= '○' %>
-                  <% end %>
+                    <%= link_to new_reservation_path(day: day, time: time) do %>
+                      <%= '○' %>
+                    <% end %>
                   <!-- ここまで -->
-                <% end %>
-              </td>
-            <% end %>
+                  <% end %>
+                </td>
+              <% end %>
           </tr>
         <% end %>
       <% end %>

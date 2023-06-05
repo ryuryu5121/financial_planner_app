@@ -26,6 +26,11 @@
       <li class="nav-item">
         <a class="nav-link text-dark" href="#">Help</a>
       </li>
+      <% if fp_logged_in?%>
+      <li class="btn btn-success">
+        <%=link_to "reserve", new_schedule_path%>
+      </li>
+      <% end %>
     </ul>
   </div>
   <div class="collapse navbar-collapse justify-content-end">
@@ -34,6 +39,10 @@
         <% if logged_in? %>
           <li class="btn btn-success">
             <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
+          </li>
+        <% elsif fp_logged_in? %>
+          <li class="btn btn-success">
+            <%= link_to "Log out", fplogout_path, data: { "turbo-method": :delete } %>
           </li>
         <% else %>
           <a class="btn btn-success" type="button" href="/login">個人向けログイン</a>
