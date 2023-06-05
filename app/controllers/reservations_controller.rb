@@ -1,9 +1,9 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: params[:fp_id]).order(day: :desc)
+    @reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.months))).where(fp_id: params[:fp_id]).order(day: :desc)
     @financial_planners ||= FinancialPlanner.all
     @choice_fp = params[:fp_id]
-    @select_fp_schedules = Schedule.all.where(day: (Date.current)..(Date.current.since(3.month))).where(FP_id: params[:fp_id]).order(day: :desc)
+    @select_fp_schedules = Schedule.all.where(day: (Date.current)..(Date.current.since(3.months))).where(FP_id: params[:fp_id]).order(day: :desc)
   end
 
   def new
@@ -25,12 +25,6 @@ class ReservationsController < ApplicationController
     else
       render :new
     end
-  end
-
-  def destroy
-    Reservation.find(params[:id]).destroy
-    flash[:success] = "予約データを削除しました"
-    redirect_to current_user, status: :see_other
   end
 
   private

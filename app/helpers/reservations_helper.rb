@@ -43,8 +43,6 @@ module ReservationsHelper
   end
 
   def check_date_before_today(day)
-    if day < Date.today
-      return true
-    end
+    day < Date.today
   end
 end
