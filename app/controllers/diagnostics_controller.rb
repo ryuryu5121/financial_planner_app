@@ -6,6 +6,7 @@ class DiagnosticsController < ApplicationController
   end
 
   def diagnostic
-    redirect_to diagnostics_show_path
+    @result = { years_old: params[:years_old] }
+    redirect_to diagnostics_show_path(result: @result)
   end
 end

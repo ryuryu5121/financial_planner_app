@@ -3,7 +3,7 @@
 </h1>
 
 <div class="diagostic_form_group row justify-content-center my-5 py-3">
-  <div class="col-5 mt-3 content">
+  <div class="col-4 mt-3 content">
     <%= form_with url: diagnostic_path, local: true, class: 'form' do |form| %>
       <div class="years_old">
         <%= form.label :years_old, '年齢' %><a>(歳)</a>
@@ -71,7 +71,7 @@
       </div>
 
       <div class="submit">
-        <%= form.submit value: '予約する', class: 'btn btn-primary mx-auto d-block' %>
+        <%= form.submit value: '診断する', class: 'btn btn-primary mx-auto d-block' %>
       </div>
 
     <% end %>
