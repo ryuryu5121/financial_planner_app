@@ -4,4 +4,8 @@ class DiagnosticsController < ApplicationController
 
   def show
   end
+
+  def diagnostic
+    redirect_to diagnostics_show_path
+  end
 end

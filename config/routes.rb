@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   get 'diagnostics/index'
-  post 'diagnostics/diagnostic'
+  post '/diagnostic', to: "diagnostics#diagnostic"
   get 'diagnostics/show'
   get 'schedules/new'
   get 'schedules/create'
