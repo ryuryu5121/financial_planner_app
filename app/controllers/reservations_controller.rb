@@ -1,14 +1,14 @@
 class ReservationsController < ApplicationController
   def index
-    @reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.months))).where(fp_id: params[:fp_id]).order(day: :desc)
+    @reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: params[:financial_planner_id]).order(day: :desc)
     @financial_planners ||= FinancialPlanner.all
-    @choice_fp = params[:fp_id]
-    @select_fp_schedules = Schedule.all.where(day: (Date.current)..(Date.current.since(3.months))).where(FP_id: params[:fp_id]).order(day: :desc)
+    @choice_financial_planner = params[:financial_planner_id]
+    @select_financial_planner_schedules = Schedule.all.where(day: (Date.current)..(Date.current.since(3.month))).where(FP_id: params[:financial_planner_id]).order(day: :desc)
   end
 
   def new
     @reservation = Reservation.new
-    @fp_id = FinancialPlanner.find_by(id: params[:fp_id])
+    @financial_planner_id = FinancialPlanner.find_by(id: params[:financial_planner_id])
     @day = params[:day]
     @time = params[:time]
     @start_time = DateTime.parse(@day + " " + @time + " " + "JST")

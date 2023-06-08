@@ -6,7 +6,7 @@ class FpSessionsController < ApplicationController
     financial_planner = FinancialPlanner.find_by(email: params[:session][:email].downcase)
     if financial_planner && financial_planner.authenticate(params[:session][:password])
       reset_session
-      fp_log_in financial_planner
+      financial_planner_log_in financial_planner
       redirect_to financial_planner
     else
       flash.now[:danger] = '無効なメールアドレス・パスワードです'
