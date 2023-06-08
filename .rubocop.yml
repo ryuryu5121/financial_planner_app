@@ -68,6 +68,7 @@ Layout/LineLength:
 Layout/SpaceInsideArrayLiteralBrackets:
   Exclude:
     - 'config/*'
+    - 'config/*/*'
 
 Layout/SpaceInsidePercentLiteralDelimiters:
   Exclude:
