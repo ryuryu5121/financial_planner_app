@@ -4,10 +4,10 @@ class SchedulesController < ApplicationController
   end
 
   def create
-    @schedule = Schedule.new(FP_id: current_fp.id,**schedule_params)
+    @schedule = Schedule.new(FP_id: current_financial_planner.id,**schedule_params)
     if @schedule.save
       flash[:success] = "勤怠の登録が完了しました！"
-      redirect_to @current_fp
+      redirect_to @current_financial_planner
     else
       render 'new', status: :unprocessable_entity
     end
