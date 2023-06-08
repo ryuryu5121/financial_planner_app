@@ -54,11 +54,11 @@ Rails/ActionOrder:
 Metrics/MethodLength:
   Max: 20
 
-Metrics/CyclomaticComplexity:
-  Max: 10
+# Metrics/CyclomaticComplexity:
+#   Max: 10
 
-Metrics/PerceivedComplexity:
-  Max: 10
+# Metrics/PerceivedComplexity:
+#   Max: 10
 
 Layout/LineLength:
   Max: 180
