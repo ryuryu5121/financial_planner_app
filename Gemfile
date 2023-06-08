@@ -54,7 +54,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 
 group :production do
-  gem "pg", "~> 1.4"
+  gem "pg", "~> 1.1"
 end
 
 group :development, :test do
