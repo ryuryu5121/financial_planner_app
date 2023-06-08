@@ -30,9 +30,9 @@
         <%= link_to "reservation", reservations_index_path, {:class => "nav-link text-dark"}%>
       <% end%>
       <% if financial_planner_logged_in?%>
-      <li class="btn btn-success">
-        <%=link_to "schedule", new_schedule_path%>
-      </li>
+        <li class="btn btn-success">
+          <%=link_to "schedule", new_schedule_path%>
+        </li>
       <% end %>
     </ul>
   </div>
