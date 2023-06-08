@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'schedules/new'
+  get 'schedules/create'
   get 'fp_sessions/new'
   get 'financial_planner/new'
   get 'financial_planner/show'
@@ -18,6 +20,7 @@ Rails.application.routes.draw do
   resources :reservations
   resources :users
   resources :financial_planners
+  resources :schedules
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")

@@ -5,6 +5,7 @@ class FinancialPlannersController < ApplicationController
 
   def show
     @financial_planner = FinancialPlanner.find(params[:id])
+    @reservations = Reservation.all.where("day >= ?", Date.current).where("day < ?", Date.current >> 3).order(day: :desc)
   end
 
   def create
@@ -20,6 +21,7 @@ class FinancialPlannersController < ApplicationController
   end
 
   private
+
   def financial_planner_params
     params.require(:financial_planner).permit(:name, :email, :password, :password_confirmation)
   end
