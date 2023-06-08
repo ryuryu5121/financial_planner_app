@@ -4,9 +4,9 @@
       The form contains <%= pluralize(@financial_planner.errors.count, "error") %>.
     </div>
     <ul>
-    <% @financial_planner.errors.full_messages.each do |msg| %>
+      <% @financial_planner.errors.full_messages.each do |msg| %>
       <li><%= msg %></li>
-    <% end %>
+      <% end %>
     </ul>
   </div>
 <% end %>

@@ -14,13 +14,12 @@
 @import "bootstrap";
 @import "simple_calendar";
 
-
 h1 {
     font-size: 3em;
     letter-spacing: -2px;
     margin-bottom: 30px;
     text-align: center;
-  }
+}
 
 .container {
     min-height: 100vh;
@@ -36,41 +35,51 @@ body {
 
 html {
     font-size: 100%;
-  }
+}
+
 body {
   color: #333;
   font-family: "游ゴシック体", "YuGothic", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "メイリオ", sans-serif;
   letter-spacing: 0.1em;
 }
+
 a {
   color: #333;
   text-decoration: none;
 }
+
 img {
   max-width: 100%;
   vertical-align: bottom;
 }
+
 li {
   list-style: none;
 }
+
 /*
 コンテンツ幅を設定するための共通クラス
 */
+
 .wrapper {
   width: 100%;
   max-width: 860px;
   margin: 0 auto;
 }
+
 /*
 セクションタイトル用の共通クラス
 */
+
 .section-title {
   font-size: 2.25rem;
   margin-bottom: 100px;
   text-align: center;
   position: relative;
 }
+
 /* 疑似要素でタイトル下に下線を引く */
+
 .section-title::after {
   content: "";
   width: 100px;
@@ -87,30 +96,36 @@ li {
 /*-------------------------------------------
 Mainvisual
 -------------------------------------------*/
+
 #mainvisual {
   height: 720px;
   position: relative;
   margin-bottom: 120px;
   margin-top: 200px;
 }
+
 /*
 テキストとボタンが画像の上に表示されるように「z-index」を設定
 */
+
 #mainvisual .text {
   top: 280px;
   left: 10%;
   z-index: 10;
 }
+
 /*
 「text-shadow」で文字の輪郭に白い影をつけることで、
 文字が背景画像に埋もれないようにする
 */
+
 #mainvisual .text .title {
   font-size: 2.875rem;
   font-weight: bold;
   margin-bottom: 30px;
   text-shadow: 0 4px 6px #fff;
 }
+
 #mainvisual .text .btn {
   background-color: #ff2a2a;
   /* 文字の下に影をつけてボタンに立体感を出す */
@@ -124,12 +139,14 @@ Mainvisual
   transition: 0.3s;
   position: relative;
 }
+
 /*
 ボタンの右矢印
 上と右にボーダーを設定し、「transform: rotate(45deg)」で
 45度回転させることで矢印を作成
 positionで位置を調整する
 */
+
 #mainvisual .text .btn::after {
   content: "";
   width: 16px;
@@ -141,14 +158,17 @@ positionで位置を調整する
   top: 26px;
   right: 30px;
 }
+
 /*
 ホバー時は、opacityで透過させながら「transform: scale(1.05);」で
 少しだけボタンのサイズを大きくする
 */
+
 #mainvisual .text .btn:hover {
   opacity: 0.9;
   transform: scale(1.05);
 }
+
 /*
 メインビジュアル
 animationを使用して、画像をフェードイン、フェードアウトで切り替えを行う
@@ -157,6 +177,7 @@ animationを使用して、画像をフェードイン、フェードアウト�
 jQueryのプラグインを使う等便利なやり方が色々ありますが、
 今回は学習のためにアニメーションを使用しています。
 */
+
 #mainvisual .fade li {
   width: 75%;
   position: absolute;
@@ -172,35 +193,44 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
   */
   animation: fade 15s infinite;
 }
+
 /*
 1枚目の画像のアニメーション実行タイミングを設定
 「animation-delay: 0s;」ですぐに実行
 */
+
 #mainvisual .fade li:nth-child(1) {
   animation-delay: 0s;
 }
+
 /*
 2枚目の画像のアニメーション実行タイミングを設定
 「animation-delay: 5s;」で5秒後に実行
 */
+
 #mainvisual .fade li:nth-child(2) {
   animation-delay: 5s;
 }
+
 /*
 3枚目の画像のアニメーション実行タイミングを設定
 「animation-delay: 10s;」で10秒後に実行
 */
+
 #mainvisual .fade li:nth-child(3) {
   animation-delay: 10s;
 }
+
 #mainvisual .fade li img {
   width: 100%;
   height: 720px;
   object-fit: cover;
 }
+
 /*
 「box-shadow」で画像のまわりをぼかす
 */
+
 #mainvisual .fade li::after {
   content: "";
   position: absolute;
@@ -210,6 +240,7 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
   right: 0;
   box-shadow: inset 0px 0px 20px 20px #fff;
 }
+
 /*
 アニメーション処理
 上の「animation」で15sを指定しているので下記の処理を15秒かけて実行
@@ -221,38 +252,49 @@ jQueryのプラグインを使う等便利なやり方が色々ありますが�
 45%の時点に向けて画像を非表示（フェードアウト）する。
 そこから100%まで非表示の状態を維持する。
 */
+
 @keyframes fade {
   0% {
     opacity: 0;
   }
+
   15% {
     opacity: 1;
   }
+
   30% {
     opacity: 1;
   }
+
   45% {
     opacity: 0;
   }
+
   100% {
     opacity: 0;
   }
+
 }
+
 
 /*-------------------------------------------
 Reason
 -------------------------------------------*/
+
 #reason {
   margin-bottom: 120px;
 }
+
 #reason .bg {
   background-color: #ff2a2a;
   padding: 80px 0;
 }
+
 /*
 スライド左右共通
 最初は「opacity: 0;」で非表示にしておく
 */
+
 #reason .slide {
   width: 50%;
   display: flex;
@@ -262,26 +304,31 @@ Reason
   padding: 5%;
   opacity: 0;
 }
+
 #reason .slide img {
   width: auto;
   height: 60px;
   margin-right: 30px;
 }
+
 #reason .slide .title {
   color: #ff2a2a;
   display: block;
   font-size: 1.75rem;
   font-weight: bold;
 }
+
 #reason .slide .text {
   display: block;
   font-size: 1.125rem;
 }
+
 #reason .inview-slide-left {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
   margin-bottom: 40px;
 }
+
 /*
 アニメーション（スライド左）を実行
 
@@ -292,15 +339,18 @@ ease-out：アニメーションの変化（開始時は早く、終了時は緩
 1：アニメーションの繰り返し回数（1回）
 forwards：アニメーション終了時の状態をそのまま維持
 */
+
 #reason .slide-left {
   animation: slide-left 0.5s ease-out 0s 1 forwards;
 }
+
 /*
 アニメーション処理
 
 最初は「translateX(-50%);」で左側に隠しておく
 100%（0.5秒）かけて要素を表示させながら元の位置へ移動させる
 */
+
 @keyframes slide-left {
   0% {
     transform: translateX(-50%);
@@ -310,18 +360,22 @@ forwards：アニメーション終了時の状態をそのまま維持
     transform: translateX(0);
   }
 }
+
 #reason .inview-slide-right {
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
+
 /*
 アニメーション（スライド右）を実行
 
 ※左の処理と同様
 */
+
 #reason .slide-right {
   animation: slide-right 0.5s ease-out 0s 1 forwards;
 }
+
 @keyframes slide-right {
   0% {
     transform: translateX(150%);
@@ -335,9 +389,11 @@ forwards：アニメーション終了時の状態をそのまま維持
 /*-------------------------------------------
 Voice
 -------------------------------------------*/
+
 #voice {
   margin-bottom: 120px;
 }
+
 #voice .item-left,
 #voice .item-right {
   display: flex;
@@ -345,25 +401,31 @@ Voice
   opacity: 0;
   margin-bottom: 60px;
 }
+
 #voice .item-left {
   justify-content: flex-start;
 }
+
 #voice .item-left:last-of-type {
   margin-bottom: 0;
 }
+
 #voice .item-right {
   justify-content: flex-end;
 }
+
 #voice .student img {
   width: 120px;
   background-color: #ccc;
   border-radius: 50%;
   margin-bottom: 10px;
 }
+
 #voice .student .name {
   font-size: 0.75rem;
   text-align: center;
 }
+
 /* ふきだしを設定 */
 #voice .item-left .balloon-text,
 #voice .item-right .balloon-text {
@@ -375,9 +437,11 @@ Voice
   padding: 20px;
   position: relative;
 }
+
 #voice .item-left .balloon-text {
   margin-left: 25px;
 }
+
 /* 左のふきだしの矢印部分を設定 */
 #voice .item-left .balloon-text::before {
   content: "";
@@ -388,9 +452,11 @@ Voice
   border: 15px solid transparent;
   border-right: 15px solid #e9f1fb;
 }
+
 #voice .item-right .balloon-text {
   margin-right: 25px;
 }
+
 /* 右のふきだしの矢印部分を設定 */
 #voice .item-right .balloon-text::before {
   content: "";
@@ -401,6 +467,7 @@ Voice
   border: 15px solid transparent;
   border-left: 15px solid #e9f1fb;
 }
+
 /*
 アニメーションを実行
 
@@ -411,15 +478,18 @@ ease-out：アニメーションの変化（開始時は早く、終了時は緩
 1：アニメーションの繰り返し回数（1回）
 forwards：アニメーション終了時の状態をそのまま維持
 */
+
 #voice .balloon {
   animation: balloon 0.5s ease-out 0s 1 forwards;
 }
+
 /*
 アニメーション処理
 
 最初は「transform: scale(0.1);」で要素を小さくした状態で、「opacity: 0;」で非表示にしておく
 0.5秒かけて要素を表示させながら元のサイズへ戻す
 */
+
 @keyframes balloon {
   0% {
     transform: scale(0.1);
@@ -429,7 +499,9 @@ forwards：アニメーション終了時の状態をそのまま維持
     transform: scale(1);
     opacity: 1;
   }
+
 }
+
 
 /*-------------------------------------------
 Summary
@@ -442,30 +514,37 @@ fall：下で定義している「@keyframes fall」を実行
 infinite：アニメーションの繰り返し回数(無限に繰り返す)
 linear：アニメーションの変化（開始から終了まで一定に変化）
 */
+
 #summary {
   background: url("../img/bg.gif") repeat;
   animation: fall 10s infinite linear;
   padding: 60px 0;
   margin-bottom: 120px;
 }
+
 /*
 アニメーション処理
 
 10秒かけて背景画像の位置「background-position」を移動させる動作を繰り返す
 */
+
 @keyframes fall {
   0% {
     background-position: 0 0;
   }
+
   100% {
     background-position: -700px 700px;
   }
+
 }
+
 #summary .menu {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
 }
+
 #summary .menu li {
   width: 48%;
   background-color: #fff;
@@ -473,20 +552,25 @@ linear：アニメーションの変化（開始から終了まで一定に変�
   padding: 60px;
   margin-bottom: 32px;
 }
+
 /* 3つ目以降はmargin-bottomを設定しない */
+
 #summary .menu li:nth-child(n + 3) {
   margin-bottom: 0;
 }
+
 #summary .menu-title {
   font-weight: bold;
   line-height: 1;
   text-align: center;
 }
+
 #summary .menu-title .ja {
   display: block;
   font-size: 1.75rem;
   margin-bottom: 15px;
 }
+
 #summary .menu-title .en {
   display: block;
   font-size: 1.125rem;
@@ -496,19 +580,23 @@ linear：アニメーションの変化（開始から終了まで一定に変�
 /*-------------------------------------------
 Entry
 -------------------------------------------*/
+
 #entry {
   margin-bottom: 120px;
   text-align: center;
 }
+
 #entry .title {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 5px;
 }
+
 #entry .catchphrase {
   font-size: 1.125rem;
   margin-bottom: 40px;
 }
+
 #entry .btn {
   background-color: #ff2a2a;
   border-radius: 40px;
@@ -521,6 +609,7 @@ Entry
   text-align: center;
   transition: 0.3s;
 }
+
 #entry .btn:hover {
   background-color: #fff;
   border: solid 3px #ff2a2a;
@@ -530,12 +619,14 @@ Entry
 /*-------------------------------------------
 フッター
 -------------------------------------------*/
+
 #footer {
   background-color: #e8e8e8;
   padding: 60px 0 20px 0;
   margin-top: auto;
 
 }
+
 #footer a {
   font-size: 0.875rem;
   /*
@@ -543,26 +634,33 @@ Entry
   */
   transition: 0.3s;
 }
+
 #footer a:hover {
   opacity: 0.7;
 }
+
 #footer .inner {
   display: flex;
   justify-content: space-between;
   margin-bottom: 60px;
 }
+
 #footer .inner > li {
   width: 25%;
 }
+
 #footer .inner .title {
   font-weight: bold;
 }
+
 #footer .inner .menu {
   padding: 10px 0 0 10px;
 }
+
 #footer .inner .menu li {
   margin-bottom: 3px;
 }
+
 #footer .copyright {
   font-size: 0.625rem;
   text-align: center;
@@ -571,6 +669,7 @@ Entry
 /*-------------------------------------------
 SP
 -------------------------------------------*/
+
 @media screen and (max-width: 900px) {
   .wrapper {
     padding: 0 16px;
@@ -583,156 +682,194 @@ SP
     width: 80px;
   }
 
-  /*-------------------------------------------
-  ヘッダー
-  -------------------------------------------*/
 
-  /*-------------------------------------------
-  Mainvisual
-  -------------------------------------------*/
-  #mainvisual {
-    height: 490px;
-    margin-bottom: 80px;
-  }
-  #mainvisual .fade li {
-    width: 100%;
-  }
-  #mainvisual .fade li img {
-    height: 300px;
-  }
-  #mainvisual .text {
-    /* 両端に16pxづつ余白を作る */
-    width: calc(100% - 32px);
-    top: 310px;
-    left: 16px;
-  }
-  #mainvisual .text .title {
-    font-size: 1.75rem;
-    margin-bottom: 10px;
-  }
-  #mainvisual .text .btn {
-    width: 100%;
-  }
+/*-------------------------------------------
+ヘッダー
+-------------------------------------------*/
 
-  /*-------------------------------------------
-  Reason
-  -------------------------------------------*/
-  #reason {
-    margin-bottom: 80px;
-  }
-  #reason .bg {
-    padding: 40px 0;
-  }
-  #reason .slide {
-    width: calc(100% - 16px);
-  }
-  #reason .slide .title {
-    font-size: 1.5rem;
-  }
-  @keyframes slide-left {
-    0% {
-      transform: translateX(-100%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(0);
-    }
-  }
-  @keyframes slide-right {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      opacity: 1;
-      transform: translateX(16px);
-    }
-  }
+/*-------------------------------------------
+Mainvisual
+-------------------------------------------*/
 
-  /*-------------------------------------------
-  Voice
-  -------------------------------------------*/
-  #voice {
-    margin-bottom: 80px;
-  }
-  #voice .student {
-    text-align: center;
-  }
-  #voice .item-left,
-  #voice .item-right {
-    margin-bottom: 40px;
-  }
-  #voice .item-left {
-    flex-direction: column-reverse;
-    align-items: center;
-  }
-  #voice .item-right {
-    flex-direction: column;
-    align-items: center;
-  }
-  #voice .item-left .balloon-text,
-  #voice .item-right .balloon-text {
-    width: 100%;
-    margin: 0 0 30px 0;
-  }
-  /*
-  スマホの場合はふきだしの向きを下に変える
-  */
-  #voice .item-left .balloon-text::before,
-  #voice .item-right .balloon-text::before {
-    top: 100%;
-    border: 15px solid transparent;
-    border-top: 15px solid #e9f1fb;
-  }
-  #voice .item-left .balloon-text::before {
-    margin-left: calc(50% - 15px);
-  }
-  #voice .item-right .balloon-text::before {
-    margin-right: calc(50% - 15px);
+#mainvisual {
+  height: 490px;
+  margin-bottom: 80px;
+}
+
+#mainvisual .fade li {
+  width: 100%;
+}
+
+#mainvisual .fade li img {
+  height: 300px;
+}
+
+#mainvisual .text {
+  /* 両端に16pxづつ余白を作る */
+  width: calc(100% - 32px);
+  top: 310px;
+  left: 16px;
+}
+
+#mainvisual .text .title {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+}
+
+#mainvisual .text .btn {
+  width: 100%;
+}
+
+
+/*-------------------------------------------
+Reason
+-------------------------------------------*/
+
+#reason {
+  margin-bottom: 80px;
+}
+
+#reason .bg {
+  padding: 40px 0;
+}
+
+#reason .slide {
+  width: calc(100% - 16px);
+}
+
+#reason .slide .title {
+  font-size: 1.5rem;
+}
+
+@keyframes slide-left {
+  0% {
+    transform: translateX(-100%);
   }
 
-  /*-------------------------------------------
-  Summary
-  -------------------------------------------*/
-  #summary {
-    margin-bottom: 80px;
-  }
-  #summary .menu {
-    flex-direction: column;
-  }
-  #summary .menu li {
-    width: 100%;
-    padding: 30px;
-  }
-  #summary .menu li:nth-child(3) {
-    margin-bottom: 32px;
-  }
-  #summary .menu-title .ja {
-    font-size: 1.5rem;
-  }
-  #summary .menu-title .en {
-    font-size: 1rem;
+  100% {
+    opacity: 1;
+    transform: translateX(0);
   }
 
-  /*-------------------------------------------
-  Entry
-  -------------------------------------------*/
-  #entry {
-    margin-bottom: 80px;
-  }
-  #entry .title {
-    font-size: 1.5rem;
-  }
-  #entry .catchphrase {
-    font-size: 1rem;
-  }
-  #entry .btn{
-    font-size: 1.5rem;
+}
+
+@keyframes slide-right {
+  0% {
+    transform: translateX(100%);
   }
 
-  /*-------------------------------------------
-  フッター
-  -------------------------------------------*/
+  100% {
+    opacity: 1;
+    transform: translateX(16px);
+  }
 
+}
+
+
+/*-------------------------------------------
+Voice
+-------------------------------------------*/
+#voice {
+  margin-bottom: 80px;
+}
+
+#voice .student {
+  text-align: center;
+}
+
+#voice .item-left,
+#voice .item-right {
+  margin-bottom: 40px;
+}
+
+#voice .item-left {
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+#voice .item-right {
+  flex-direction: column;
+  align-items: center;
+}
+
+#voice .item-left .balloon-text,
+#voice .item-right .balloon-text {
+  width: 100%;
+  margin: 0 0 30px 0;
+}
+
+/*
+スマホの場合はふきだしの向きを下に変える
+*/
+
+#voice .item-left .balloon-text::before,
+#voice .item-right .balloon-text::before {
+  top: 100%;
+  border: 15px solid transparent;
+  border-top: 15px solid #e9f1fb;
+}
+
+#voice .item-left .balloon-text::before {
+  margin-left: calc(50% - 15px);
+}
+
+#voice .item-right .balloon-text::before {
+  margin-right: calc(50% - 15px);
+}
+
+
+/*-------------------------------------------
+Summary
+-------------------------------------------*/
+#summary {
+  margin-bottom: 80px;
+}
+
+#summary .menu {
+  flex-direction: column;
+}
+
+#summary .menu li {
+  width: 100%;
+  padding: 30px;
+}
+
+#summary .menu li:nth-child(3) {
+  margin-bottom: 32px;
+}
+
+#summary .menu-title .ja {
+  font-size: 1.5rem;
+}
+
+#summary .menu-title .en {
+  font-size: 1rem;
+}
+
+
+/*-------------------------------------------
+Entry
+-------------------------------------------*/
+#entry {
+  margin-bottom: 80px;
+}
+
+#entry .title {
+  font-size: 1.5rem;
+}
+
+#entry .catchphrase {
+  font-size: 1rem;
+}
+
+#entry .btn{
+  font-size: 1.5rem;
+}
+
+
+/*-------------------------------------------
+フッター
+-------------------------------------------*/
 }
 
 .section-title {
@@ -758,4 +895,99 @@ input {
     color: red;
     margin: 0 0 30px 0;
   }
+}
+
+//勤怠登録用フォーム//
+
+.form_section {
+  max-width: 630px;
+	margin: 0 auto;
+	padding: 0;
+}
+
+.date-table {
+	border-collapse: collapse;
+}
+
+.date-table th {
+	color: #53a034;
+	padding: 15px 20px 0 0;
+	vertical-align: top;
+	white-space: nowrap;
+}
+
+.date-table td {
+	padding: 0 0 1.5em 0;
+}
+
+.cal-wrap {
+	position: relative;
+	cursor: pointer;
+	margin: 0 15px 0 0;
+}
+
+.cal-wrap:before {
+	content: "";
+	background: url(icon_calendar.svg) no-repeat;
+	background-size: contain;
+	height: 22px;
+	width: 22px;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 10px;
+	margin: auto;
+}
+
+input[type="date"].cal {
+	font-size: 18px;
+	outline: none;
+	background: #e9e9e9;
+	border-radius: 5px;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 0 0 50px;
+	cursor: pointer;
+	width: 180px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+}
+
+.time-select {
+	font-size: 18px;
+	outline: none;
+	background: #e9e9e9;
+	border-radius: 5px;
+	height: 50px;
+	line-height: 50px;
+	width: 70px;
+	box-sizing: border-box;
+	border: 2px solid #ccc;
+}
+
+.btn-style {
+	background: #53a034;
+	border-radius: 40px;
+	color: #fff;
+	display: inline-block;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	width: 100%;
+	max-width: 200px;
+	text-decoration: none;
+}
+
+.error_txt {
+	display: block;
+	margin: .3em 0 0 0;
+	color: #f00;
+}
+
+.form-group {
+  border-radius: 60px;
+  background: #ededed;
+  box-shadow:  41px 41px 94px #c9c9c9,
+               -41px -41px 94px #ffffff;
 }
