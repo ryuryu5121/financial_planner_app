@@ -51,7 +51,6 @@ Rails/HelperInstanceVariable:
 Rails/ActionOrder:
   Enabled: false
 
-
 Metrics/MethodLength:
   Max: 20
 
@@ -60,7 +59,6 @@ Metrics/CyclomaticComplexity:
 
 Metrics/PerceivedComplexity:
   Max: 10
-
 
 Layout/LineLength:
   Max: 180
