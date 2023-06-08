@@ -34,7 +34,7 @@ module ReservationsHelper
     return result
   end
 
-  def check_schedule(schedules, day, time)
+  def is_reservable_schedule?(schedules, day, time)
     select_day = schedules.where(day: day)
     select_day_count = select_day.count
     if (select_day_count == 1)

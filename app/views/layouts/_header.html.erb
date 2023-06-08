@@ -29,7 +29,7 @@
       <% if logged_in? %>
         <%= link_to "reservation", reservations_index_path, {:class => "nav-link text-dark"}%>
       <% end%>
-      <% if fp_logged_in?%>
+      <% if financial_planner_logged_in?%>
       <li class="btn btn-success">
         <%=link_to "schedule", new_schedule_path%>
       </li>
@@ -43,7 +43,7 @@
           <li class="btn btn-success">
             <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
           </li>
-        <% elsif fp_logged_in? %>
+        <% elsif financial_planner_logged_in? %>
           <li class="btn btn-success">
             <%= link_to "Log out", fplogout_path, data: { "turbo-method": :delete } %>
           </li>
