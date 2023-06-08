@@ -1,0 +1,73 @@
+inherit_from: .rubocop_todo.yml
+
+AllCops:
+  TargetRubyVersion: 3.1.2
+  DisplayCopNames: true
+  NewCops: enable
+
+require:
+  - rubocop-performance
+  - rubocop-rails
+
+Style/StringLiterals:
+  Enabled: false
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Rails/BulkChangeTable:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  Enabled: false
+
+Style/RedundantFetchBlock:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/GlobalStdStream:
+  Enabled: false
+
+Style/RedundantConstantBase:
+  Enabled: false
+
+Rails/I18nLocaleTexts:
+  Enabled: false
+
+Rails/HelperInstanceVariable:
+  Enabled: false
+
+Rails/ActionOrder:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 20
+
+# Metrics/CyclomaticComplexity:
+#   Max: 10
+
+# Metrics/PerceivedComplexity:
+#   Max: 10
+
+Layout/LineLength:
+  Max: 180
+
+Layout/SpaceInsideArrayLiteralBrackets:
+  Exclude:
+    - 'config/*'
+    - 'config/*/*'
+
+Layout/SpaceInsidePercentLiteralDelimiters:
+  Exclude:
+    - 'Gemfile'

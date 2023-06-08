@@ -11,7 +11,7 @@ class ReservationsController < ApplicationController
     @financial_planner_id = FinancialPlanner.find_by(id: params[:financial_planner_id])
     @day = params[:day]
     @time = params[:time]
-    @start_time = DateTime.parse(@day + " " + @time + " " + "JST")
+    @start_time = DateTime.parse("#{@day} #{@time} JST")
   end
 
   def show
@@ -28,6 +28,7 @@ class ReservationsController < ApplicationController
   end
 
   private
+
   def reservation_params
     params.require(:reservation).permit(:day, :time, :user_id, :start_time, :fp_id)
   end
