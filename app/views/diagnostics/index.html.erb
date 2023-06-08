@@ -1,0 +1,18 @@
+<div class="diagostic_form_group">
+  <div class="col-12 mt-3 content">
+    <%= form_with url: 'diagnostics/diagnostic', local: true, class: 'form' do |form| %>
+      <div class="day">
+        <%= form.label :years_old, '年齢' %>
+        <%= form.number_field :years_old, class: 'form-control', step: "1" %>
+      </div>
+
+      <div class="submit">
+        <%= form.submit value: '予約する', class: 'btn btn-primary mx-auto d-block' %>
+      </div>
+
+    <% end %>
+    <div class="col-12 text-right">
+      <%= link_to '戻る', '/' %>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'diagnostics/index'
+  post 'diagnostics/diagnostic'
+  get 'diagnostics/show'
   get 'schedules/new'
   get 'schedules/create'
   get 'fp_sessions/new'

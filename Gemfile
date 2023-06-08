@@ -11,11 +11,6 @@ gem 'jquery-rails'
 
 gem 'bootstrap', '~> 5.0.2'
 
-<<<<<<< HEAD
-=======
-gem 'solargraph'
-
->>>>>>> FP_attendance
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
 
