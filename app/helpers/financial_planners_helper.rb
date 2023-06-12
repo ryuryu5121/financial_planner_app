@@ -3,6 +3,7 @@ module FinancialPlannersHelper
     @user_id = User.find_by(id: user_id)
   end
 
+  #日付とFinancial_Plannerの勤務可能時間帯を比較する
   def check_calendar_day(schedules, calendar_day)
     schedules.filter_map do |schedule|
       if schedule[:day].eql?(calendar_day.strftime("%Y-%m-%d"))
