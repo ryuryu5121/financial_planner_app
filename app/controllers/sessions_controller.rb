@@ -11,9 +11,7 @@ class SessionsController < ApplicationController
         log_in user
         redirect_to forwarding_url || user
       else
-        message  = "アカウントは有効化されていません"
-        message += "リンクのメールアドレスを確認して下さい"
-        flash[:warning] = message
+        flash[:warning] = 'アカウントは有効化されていません。リンクのメールアドレスを確認して下さい。'
         redirect_to root_url
       end
     else
