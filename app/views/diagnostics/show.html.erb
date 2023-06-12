@@ -1,6 +1,8 @@
 <h1>Diagnostics#show</h1>
 <p>Find me in app/views/diagnostics/show.html.erb</p>
-<%= params[:result][:years_old]%>
+<% params[:result].each do |key, value|%>
+    <%= key %><%= value %>
+<% end %>
 
 <canvas id="myChart"></canvas>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

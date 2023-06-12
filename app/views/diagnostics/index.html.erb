@@ -21,53 +21,53 @@
       </div>
 
       <div class="rent">
-        <%= form.label :rent, '居住費' %><a>(万円)</a>
-        <%= form.number_field :rent, class: 'form-control', step: "1", value: "5" %>
+        <%= form.label :rent, '居住費' %><a>(円)</a>
+        <%= form.number_field :rent, class: 'form-control', step: "1000", value: "50000" %>
       </div>
 
       <div class="food_expense">
-        <%= form.label :food_expense, '食費' %><a>(万円)</a>
-        <%= form.number_field :food_expense, class: 'form-control', step: "1", value: "5" %>
+        <%= form.label :food_expense, '食費' %><a>(円)</a>
+        <%= form.number_field :food_expense, class: 'form-control', step: "1000", value: "50000" %>
       </div>
 
       <div class="utility_bills">
-        <%= form.label :utility_bills, '水道・光熱費' %><a>(万円)</a>
-        <%= form.number_field :utility_bills, class: 'form-control', step: "1", value: "1" %>
+        <%= form.label :utility_bills, '水道・光熱費' %><a>(円)</a>
+        <%= form.number_field :utility_bills, class: 'form-control', step: "1000", value: "10000" %>
       </div>
 
       <div class="clothes">
-        <%= form.label :clothes, '衣服費' %><a>(万円)</a>
-        <%= form.number_field :clothes, class: 'form-control', step: "1", value: "5" %>
+        <%= form.label :clothes, '衣服費' %><a>(円)</a>
+        <%= form.number_field :clothes, class: 'form-control', step: "1000", value: "50000" %>
       </div>
 
       <div class="medical_insurance">
-        <%= form.label :medical_insurance, '医療・保険' %><a>(万円)</a>
-        <%= form.number_field :medical_insurance, class: 'form-control', step: "1", value: "1" %>
+        <%= form.label :medical_insurance, '医療・保険' %><a>(円)</a>
+        <%= form.number_field :medical_insurance, class: 'form-control', step: "1000", value: "10000" %>
       </div>
 
       <div class="communication_cost">
-        <%= form.label :communication_cost, '交通・通信費' %><a>(万円)</a>
-        <%= form.number_field :communication_cost, class: 'form-control', step: "1", value: "3" %>
+        <%= form.label :communication_cost, '交通・通信費' %><a>(円)</a>
+        <%= form.number_field :communication_cost, class: 'form-control', step: "1000", value: "30000" %>
       </div>
 
       <div class="education">
         <%= form.label :education, '教育' %><a>(万円)</a>
-        <%= form.number_field :education, class: 'form-control', step: "1", value: "3" %>
+        <%= form.number_field :education, class: 'form-control', step: "1000", value: "30000" %>
       </div>
 
       <div class="entertainment">
-        <%= form.label :anyother, '娯楽費' %><a>(万円)</a>
-        <%= form.number_field :entertainment, class: 'form-control', step: "1", value: "1" %>
+        <%= form.label :entertainment, '娯楽費' %><a>(円)</a>
+        <%= form.number_field :entertainment, class: 'form-control', step: "1000", value: "10000" %>
       </div>
 
-      <div class="invest">
-        <%= form.label :invest, '投資' %><a>(万円)</a>
-        <%= form.number_field :invest, class: 'form-control', step: "1", value: "0" %>
+      <div class="saving">
+        <%= form.label :saving, '貯金' %><a>(万円)</a>
+        <%= form.number_field :saving, class: 'form-control', step: "1", value: "0" %>
       </div>
 
       <div class="anyother">
-        <%= form.label :anyother, 'その他' %><a>(万円)</a>
-        <%= form.number_field :anyother, class: 'form-control', step: "1", value: "1" %>
+        <%= form.label :anyother, 'その他' %><a>(円)</a>
+        <%= form.number_field :anyother, class: 'form-control', step: "1000", value: "10000" %>
       </div>
 
       <div class="submit">
