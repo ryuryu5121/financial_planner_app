@@ -22,19 +22,19 @@ h1 {
 }
 
 .container {
-    min-height: 100vh;
+  min-height: 100vh;
 }
 
 .bg-orange {
-    background-color: #ee7800;
+  background-color: #ee7800;
 }
 
 body {
-    padding-top: 200px;
+  padding-top: 200px;
 }
 
 html {
-    font-size: 100%;
+  font-size: 100%;
 }
 
 body {
@@ -900,7 +900,7 @@ input {
 //勤怠登録用フォーム//
 
 .form_section {
-  max-width: 630px;
+	max-width: 630px;
 	margin: 0 auto;
 	padding: 0;
 }
@@ -984,10 +984,22 @@ input[type="date"].cal {
 	margin: .3em 0 0 0;
 	color: #f00;
 }
-
 .form-group {
   border-radius: 60px;
   background: #ededed;
   box-shadow:  41px 41px 94px #c9c9c9,
                -41px -41px 94px #ffffff;
+}
+.fp-btn {
+  background: #53a034;
+	border-radius: 10px;
+	color: #fff;
+	display: inline-block;
+	font-weight: bold;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	width: 100%;
+	max-width: 200px;
+	text-decoration: none;
 }

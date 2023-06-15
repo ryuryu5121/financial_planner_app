@@ -3,7 +3,7 @@
     <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
-    <% reservations = Reservation.reservations_after_three_month %>
+    <% reservations = Reservation.financial_planner_reservations(@choice_fp) %>
   </div>
   <table class="table table-hover">
     <thead>
@@ -27,19 +27,17 @@
         <% times.each do |time| %>
           <tr>
             <td><%= time %></td>
-              <% week.each do |day| %>
-                <td>
-                  <% if check_reservation(reservations, day, time) %>
-                    <%= '×' %>
-                  <% else %>
-                  <!-- 追加 -->
-                    <%= link_to new_reservation_path(day: day, time: time) do %>
-                      <%= '○' %>
-                    <% end %>
-                  <!-- ここまで -->
+            <% week.each do |day| %>
+              <td>
+                <% if check_reservation(reservations, day, time) || is_reservable_schedule?(@select_financial_planner_schedules, day, time) %>
+                  <%= '×' %>
+                <% else %>
+                  <%= link_to new_reservation_path(day: day, time: time, financial_planner_id: @choice_financial_planner) do %>
+                    <%= '○' %>
                   <% end %>
-                </td>
-              <% end %>
+                <% end %>
+              </td>
+            <% end %>
           </tr>
         <% end %>
       <% end %>

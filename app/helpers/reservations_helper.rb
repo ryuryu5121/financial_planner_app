@@ -1,7 +1,6 @@
 module ReservationsHelper
   def times
-    times = ["9:00",
-             "9:30",
+    times = [
              "10:00",
              "10:30",
              "11:00",
@@ -12,7 +11,11 @@ module ReservationsHelper
              "15:00",
              "15:30",
              "16:00",
-             "16:30"]
+             "16:30",
+             "17:00",
+             "17:30",
+             "18:00"
+            ]
   end
 
   def check_reservation(reservations, day, time)
@@ -29,5 +32,13 @@ module ReservationsHelper
       return result if result
     end
     return result
+  end
+
+  def is_reservable_schedule?(schedules, day, time)
+    select_day = schedules.where(day: day)
+    select_day_count = select_day.count
+    if (select_day_count == 1)
+      Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
+    end
   end
 end

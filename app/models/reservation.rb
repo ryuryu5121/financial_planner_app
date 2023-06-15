@@ -7,4 +7,15 @@ class Reservation < ApplicationRecord
       {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
     end
   end
+
+  def self.financial_planner_schedule(financial_planners_id)
+    schedule = Schedule.all.where(FP_id: financial_planners_id)
+  end
+
+  def self.financial_planner_reservations(financial_planner_id)
+    reservations = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: financial_planner_id).order(day: :desc)
+    reservations.map do |reservation|
+      {day: reservation.day.strftime("%Y-%m-%d"), time: reservation.time}
+    end
+  end
 end

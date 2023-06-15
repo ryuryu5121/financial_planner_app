@@ -1,20 +1,20 @@
 module FpSessionsHelper
-  def fp_log_in(financial_planner)
-    session[:fp_id] = financial_planner.id
+  def financial_planner_log_in(financial_planner)
+    session[:financial_planner_id] = financial_planner.id
   end
 
-  def current_fp
-    if session[:fp_id]
-      @current_fp ||= FinancialPlanner.find_by(id: session[:fp_id])
+  def current_financial_planner
+    if session[:financial_planner_id]
+      @current_financial_planner ||= FinancialPlanner.find_by(id: session[:financial_planner_id])
     end
   end
 
-  def fp_logged_in?
-    !current_fp.nil?
+  def financial_planner_logged_in?
+    !current_financial_planner.nil?
   end
 
-  def fp_log_out
+  def financial_planner_log_out
     reset_session
-    @current_fp = nil
+    @current_financial_planner = nil
   end
 end
