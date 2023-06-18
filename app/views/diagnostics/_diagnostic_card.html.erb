@@ -16,36 +16,34 @@
 </div>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
-var ctx = document.getElementById('myChart' + <%== JSON.dump(index) %>);
-var user_data = <%== JSON.dump(user_diagnostic) %>;
-var average = <%== JSON.dump(average) %>;
-var result = <%== JSON.dump(result) %>;
-
-console.log(user_data);
-var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-        labels: ['あなた', '平均'],
-        datasets: [{
-            label: '# of Votes',
-            data: [user_data, average],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-                'rgba(54, 162, 235, 0.2)',
-            ],
-            borderColor: [
-                'rgba(255, 99, 132, 1)',
-                'rgba(54, 162, 235, 1)',
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            y: {
-                beginAtZero: true
-            }
-        }
-    }
+  var ctx = document.getElementById('myChart' + <%== JSON.dump(index) %>);
+  var user_data = <%== JSON.dump(user_diagnostic) %>;
+  var average = <%== JSON.dump(average) %>;
+  var result = <%== JSON.dump(result) %>;
+  var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+      labels: ['あなた', '平均'],
+      datasets: [{
+          label: '# of Votes',
+          data: [user_data, average],
+          backgroundColor: [
+              'rgba(255, 99, 132, 0.2)',
+              'rgba(54, 162, 235, 0.2)',
+          ],
+          borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+          ],
+          borderWidth: 1
+      }]
+  },
+  options: {
+      scales: {
+          y: {
+              beginAtZero: true
+          }
+      }
+  }
 });
 </script>
