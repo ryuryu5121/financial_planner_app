@@ -5,6 +5,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @user_reservations = Reservation.where(user_id: current_user.id)
   end
 
   def create
@@ -17,6 +18,10 @@ class UsersController < ApplicationController
     else
       render 'new', status: :unprocessable_entity
     end
+  end
+
+  def find_by_fp(fp_id)
+    FinancialPlanner.find_by(id: fp_id)
   end
 
   private

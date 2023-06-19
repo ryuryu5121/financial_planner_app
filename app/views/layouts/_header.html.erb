@@ -8,11 +8,11 @@
   <% else%>
     <a class="nav-link text-dark" href="/">Financial Planner app</a>
   <% end %>
-  <div class="collapse navbar-collapse justify-content-end">
+  <div class="collapse navbar-collapse justify-content-end header">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <% if logged_in? %>
-          <%= link_to "Home",current_user, {:class => "nav-link text-dark"} %>
+          <%= link_to "Home", current_user, {:class => "nav-link text-dark"} %>
         <% else%>
           <a class="nav-link text-dark" href="/">Home</a>
         <% end %>
@@ -27,11 +27,13 @@
         <a class="nav-link text-dark" href="#">Help</a>
       </li>
       <% if logged_in? %>
-        <%= link_to "reservation", reservations_index_path, {:class => "nav-link text-dark"}%>
+        <li class="nav-item">
+          <%= link_to "reservation", reservations_index_path, {:class => "nav-link text-dark"}%>
+        </li>
       <% end%>
       <% if financial_planner_logged_in?%>
         <li class="btn btn-success">
-          <%=link_to "schedule", new_schedule_path%>
+          <%= link_to "schedule", new_schedule_path , {:class => "nav-link text-dark"}%>
         </li>
       <% end %>
     </ul>
