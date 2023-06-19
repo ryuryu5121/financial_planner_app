@@ -29,6 +29,8 @@ class DiagnosticsController < ApplicationController
     redirect_to diagnostics_show_path(result: @user_diagnostic)
   end
 
+  private
+
   def diagnostics_years_old(years_old, user_diagnostic)
     if years_old < 30
       compare_data(user_diagnostic, MONEY_DATA_20S)
@@ -68,12 +70,12 @@ class DiagnosticsController < ApplicationController
   def count_money_problems(result)
     count = 0
     result.each do |key, value|
-      if key === :saving && value < 0
+      if key == :saving && value < 0
         count += 1
       elsif value > 0
         count += 1
       end
     end
-    return count
+    count
   end
 end
