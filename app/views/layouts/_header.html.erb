@@ -5,7 +5,7 @@
   </button>
   <% if logged_in? %>
     <%= link_to "Financial Planner app",current_user, {:class => "nav-brand text-dark"}%>
-  <% elsif fp_logged_in?%>
+  <% elsif financial_planner_logged_in?%>
     <%= link_to "Financial Planner app",current_fp, {:class => "nav-brand text-dark"}%>
   <% else %>
     <a class="nav-link text-dark" href="/">Financial Planner app</a>
@@ -15,7 +15,7 @@
       <li class="nav-item active">
         <% if logged_in? %>
           <%= link_to "Home",current_user, {:class => "nav-link text-dark"}%>
-        <% elsif fp_logged_in?%>
+        <% elsif financial_planner_logged_in?%>
           <%= link_to "Home",current_fp, {:class => "nav-link text-dark"}%>
         <% else %>
           <a class="nav-link text-dark" href="/">Home</a>
