@@ -12,7 +12,7 @@
       </div>
       <div class="col-12 d-flex justify-content-center my-3 py-3">
         <% @financial_planners.each do |financial_planner| %>
-          <%= link_to reservations_index_path(fp_id: financial_planner.id), {:class => "fp-btn m-2"} do%>
+          <%= link_to reservations_index_path(financial_planner_id: financial_planner.id), {:class => "fp-btn m-2"} do%>
             <%= financial_planner.name %>
           <% end %>
         <% end %>
@@ -25,7 +25,7 @@
         </h2>
       </div>
       <div class="col-12">
-        <% if params[:fp_id]%>
+        <% if params[:financial_planner_id]%>
           <%= week_calendar events: @reservations do |date, reservations|%>
             <%= date.day %>
           <% end %>
