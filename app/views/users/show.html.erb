@@ -1,9 +1,24 @@
 <h1>
   <%= @user.name %>
 </h1>
-<div class="row justify-content-center my-5">
-  <div class="col-sm-10">
-    <%= render partial: 'user_reservation', collection: @user_reservations %>
+<div class="d-flex justify-content-center">
+  <div class="history-btn <%= "select" if @status == "before" || @status == nil%>">
+    <%= link_to "今後の予定", user_path(@user,{status: "before"})%>
+  </div>
+  <div class="history-btn <%= "select" if @status == "after"%>">
+    <%= link_to "終了済み", user_path(@user,{status: "after"})%>
   </div>
 </div>
-</div>
+<% if @status == "before" || @status == nil%>
+  <div class="row justify-content-center my-5">
+    <div class="col-sm-10">
+      <%= render partial: 'user_reservation', collection: @user_before_reservations %>
+    </div>
+  </div>
+<% elsif @status == "after" %>
+  <div class="row justify-content-center my-5">
+    <div class="col-sm-10">
+      <%= render partial: 'user_reservation', collection: @user_after_reservations %>
+    </div>
+  </div>
+<% end %>
