@@ -6,8 +6,8 @@
     <div>
       <% if logged_in? %>
         <%= link_to "FP App",current_user, {:class => "nav-brand text-dark"}%>
-      <% elsif fp_logged_in?%>
-        <%= link_to "FP App",current_fp, {:class => "nav-brand text-dark"}%>
+      <% elsif financial_planner_logged_in?%>
+        <%= link_to "FP App",current_financial_planner, {:class => "nav-brand text-dark"}%>
       <% else %>
         <a class="nav-link text-dark" href="/">FP App</a>
       <% end %>
@@ -17,8 +17,8 @@
         <li class="nav-item active">
           <% if logged_in? %>
             <%= link_to "ホーム",current_user, {:class => "nav-link text-dark"}%>
-          <% elsif fp_logged_in?%>
-            <%= link_to "ホーム",current_fp, {:class => "nav-link text-dark"}%>
+          <% elsif financial_planner_logged_in?%>
+            <%= link_to "ホーム",current_financial_planner, {:class => "nav-link text-dark"}%>
           <% else %>
             <a class="nav-link text-dark" href="/">ホーム</a>
           <% end %>
@@ -31,7 +31,7 @@
             <%= link_to "相談予約", reservations_index_path, {:class => "nav-link text-dark"}%>
           </li>
         <% end%>
-        <% if fp_logged_in?%>
+        <% if financial_planner_logged_in?%>
           <li class="nav-item">
             <%= link_to "勤怠登録", new_schedule_path , {:class => "nav-link text-dark"}%>
           </li>
@@ -45,7 +45,7 @@
             <li class="btn btn-success">
               <%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete } %>
             </li>
-          <% elsif fp_logged_in? %>
+          <% elsif financial_planner_logged_in? %>
             <li class="btn btn-success">
               <%= link_to "ログアウト", fplogout_path, data: { "turbo-method": :delete } %>
             </li>
