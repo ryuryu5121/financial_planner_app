@@ -1,10 +1,9 @@
 <h1>
 自分の経済状況を診断してみよう！！
 </h1>
-
 <div class="diagostic_form_group row justify-content-center my-5 py-3">
   <div class="col-4 mt-3 content">
-    <%= form_with url: diagnostic_path, local: true, class: 'form' do |form| %>
+    <%= form_with url: diagnostic_path, local: true, class: 'form', data: { turbo: false } do |form| %>
       <div class="years_old">
         <%= form.label :years_old, '年齢' %><a>(歳)</a>
         <%= form.number_field :years_old, class: 'form-control', step: "1", value: "20" %>
