@@ -5,7 +5,7 @@
   </button>
   <% if logged_in? %>
     <%= link_to "Financial Planner app",current_user, {:class => "nav-brand text-dark"}%>
-  <% elsif fp_logged_in?%>
+  <% elsif financial_planner_logged_in?%>
     <%= link_to "Financial Planner app",current_fp, {:class => "nav-brand text-dark"}%>
   <% else %>
     <a class="nav-link text-dark" href="/">Financial Planner app</a>
@@ -15,7 +15,7 @@
       <li class="nav-item active">
         <% if logged_in? %>
           <%= link_to "Home",current_user, {:class => "nav-link text-dark"}%>
-        <% elsif fp_logged_in?%>
+        <% elsif financial_planner_logged_in?%>
           <%= link_to "Home",current_fp, {:class => "nav-link text-dark"}%>
         <% else %>
           <a class="nav-link text-dark" href="/">Home</a>
@@ -35,8 +35,8 @@
           <%= link_to "reservation", reservations_index_path, {:class => "nav-link text-dark"}%>
         </li>
       <% end%>
-      <% if fp_logged_in?%>
-        <li class="nav-item">
+      <% if financial_planner_logged_in?%>
+        <li class="btn btn-success">
           <%= link_to "schedule", new_schedule_path , {:class => "nav-link text-dark"}%>
         </li>
       <% end %>
@@ -49,7 +49,7 @@
           <li class="btn btn-success">
             <%= link_to "Log out", logout_path, data: { "turbo-method": :delete } %>
           </li>
-        <% elsif fp_logged_in? %>
+        <% elsif financial_planner_logged_in? %>
           <li class="btn btn-success">
             <%= link_to "Log out", fplogout_path, data: { "turbo-method": :delete } %>
           </li>
