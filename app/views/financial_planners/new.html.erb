@@ -1,6 +1,6 @@
 <div class="row justify-content-center">
   <div class="col-md-6 col-md-offset-3">
-    <h1>Sign Up for FP</h1>
+    <h1>ファイナンシャルプランナー登録</h1>
     <%= form_with(model: @financial_planner) do |f| %>
       <%= render 'shared/financial_planner_error_messages' %>
 
@@ -13,7 +13,7 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: 'form-control' %>
 
-      <%= f.label :password_confirmation, "Confirmation" %>
+      <%= f.label :password_confirmation, "パスワードの再入力" %>
       <%= f.password_field :password_confirmation, class: 'form-control' %>
 
       <%= f.submit "Create my account", class: "btn btn-primary" %>
