@@ -1,0 +1,21 @@
+databases:
+  - name: FP App db
+    databaseName: fp_app_production
+    user: FP App
+    region: singapore
+
+services:
+  - type: web
+    name: FP App
+    env: ruby
+    region: singapore
+    plan: free
+    buildCommand: "./bin/render-build.sh"
+    startCommand: "bundle exec puma -C config/puma.rb"
+    envVars:
+      - key: DATABASE_URL
+        fromDatabase:
+          name: FP App db
+          property: connectionString
+      - key: RAILS_MASTER_KEY
+        sync: false
