@@ -1,0 +1,81 @@
+<h1>
+自分の経済状況を診断してみよう！！
+</h1>
+<div class="diagostic_form_group row justify-content-center my-5 py-3">
+  <div class="col-4 mt-3 content">
+    <%= form_with url: diagnostic_path, local: true, class: 'form', data: { turbo: false } do |form| %>
+      <div class="years_old">
+        <%= form.label :years_old, '年齢' %><a>(歳)</a>
+        <%= form.number_field :years_old, class: 'form-control', step: "1", value: "20" %>
+      </div>
+
+      <div class="family">
+        <%= form.label :family, '世帯人数' %><a>(人)</a>
+        <%= form.number_field :family, class: 'form-control', step: "1", value: "1" %>
+      </div>
+
+      <div class="salary">
+        <%= form.label :salary, '年収' %><a>(万円)</a>
+        <%= form.number_field :salary, class: 'form-control', step: "5", value: "400" %>
+      </div>
+
+      <div class="rent">
+        <%= form.label :rent, '居住費' %><a>(円)</a>
+        <%= form.number_field :rent, class: 'form-control', step: "1000", value: "50000" %>
+      </div>
+
+      <div class="food_expense">
+        <%= form.label :food_expense, '食費' %><a>(円)</a>
+        <%= form.number_field :food_expense, class: 'form-control', step: "1000", value: "50000" %>
+      </div>
+
+      <div class="utility_bills">
+        <%= form.label :utility_bills, '水道・光熱費' %><a>(円)</a>
+        <%= form.number_field :utility_bills, class: 'form-control', step: "1000", value: "10000" %>
+      </div>
+
+      <div class="clothes">
+        <%= form.label :clothes, '衣服費' %><a>(円)</a>
+        <%= form.number_field :clothes, class: 'form-control', step: "1000", value: "50000" %>
+      </div>
+
+      <div class="medical_insurance">
+        <%= form.label :medical_insurance, '医療・保険' %><a>(円)</a>
+        <%= form.number_field :medical_insurance, class: 'form-control', step: "1000", value: "10000" %>
+      </div>
+
+      <div class="communication_cost">
+        <%= form.label :communication_cost, '交通・通信費' %><a>(円)</a>
+        <%= form.number_field :communication_cost, class: 'form-control', step: "1000", value: "30000" %>
+      </div>
+
+      <div class="education">
+        <%= form.label :education, '教育' %><a>(円)</a>
+        <%= form.number_field :education, class: 'form-control', step: "1000", value: "30000" %>
+      </div>
+
+      <div class="entertainment">
+        <%= form.label :entertainment, '娯楽費' %><a>(円)</a>
+        <%= form.number_field :entertainment, class: 'form-control', step: "1000", value: "10000" %>
+      </div>
+
+      <div class="saving">
+        <%= form.label :saving, '貯金' %><a>(万円)</a>
+        <%= form.number_field :saving, class: 'form-control', step: "1", value: "0" %>
+      </div>
+
+      <div class="anyother">
+        <%= form.label :anyother, 'その他' %><a>(円)</a>
+        <%= form.number_field :anyother, class: 'form-control', step: "1000", value: "10000" %>
+      </div>
+
+      <div class="submit">
+        <%= form.submit value: '診断する', class: 'btn btn-primary mx-auto d-block' %>
+      </div>
+
+    <% end %>
+    <div class="col-12 text-right">
+      <%= link_to '戻る', '/' %>
+    </div>
+  </div>
+</div>
