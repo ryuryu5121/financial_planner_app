@@ -3,7 +3,7 @@
     <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
-    <% reservations = Reservation.financial_planner_reservations(@choice_fp) %>
+    <% reservations = Reservation.financial_planner_reservations(@choice_financial_planner) %>
   </div>
   <table class="table table-hover">
     <thead>
