@@ -7,8 +7,8 @@
     <div class="col-12 mt-3 content">
       <%= form_with model: @reservation, local: true, class: 'form' do |form| %>
       <div class="day">
-        <%= form.label :financial_planner_id, '担当ファイナンシャルプランナー' %>
-        <%= form.hidden_field :financial_planner_id, class: 'form-control', value: @financial_planner_id.id %>
+        <%= form.label :fp_id, '担当ファイナンシャルプランナー' %>
+        <%= form.hidden_field :fp_id, class: 'form-control', value: @financial_planner_id.id %>
         <div class='form-control'>
           <%= @financial_planner_id.name%>
         </div>
