@@ -57,6 +57,10 @@ li {
   list-style: none;
 }
 
+h5 {
+  line-height: 1.5;
+}
+
 /*
 コンテンツ幅を設定するための共通クラス
 */
@@ -1006,4 +1010,11 @@ input[type="date"].cal {
   height: 120vh;
   border-radius: 30px;
   background: #FAFAFA;
+}
+
+.top-page-title {
+  padding-bottom: 15px;
+  border-bottom-style: solid;
+  border-bottom-width: 3.1px;
+  width: fit-content;
 }
