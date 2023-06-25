@@ -29,7 +29,7 @@
             <td><%= time %></td>
             <% week.each do |day| %>
               <td>
-                <% if check_reservation(reservations, day, time) || check_schedule(@select_fp_schedules, day, time) || check_date_before_today(day)%>
+                <% if check_reservation(reservations, day, time) || !check_schedule(@select_fp_schedules, day, time) || check_date_before_today(day)%>
                   <%= '×' %>
                 <% else %>
                   <%= link_to new_reservation_path(day: day, time: time, fp_id: @choice_fp) do %>
