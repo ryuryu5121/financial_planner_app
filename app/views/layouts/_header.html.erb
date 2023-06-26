@@ -3,38 +3,56 @@
     aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-    <div>
-      <% if logged_in? %>
-        <%= link_to "FP App",current_user, {:class => "nav-brand text-dark"}%>
-      <% elsif financial_planner_logged_in?%>
-        <%= link_to "FP App",current_fp, {:class => "nav-brand text-dark"}%>
-      <% else %>
-        <a class="nav-link text-dark" href="/">FP App</a>
-      <% end %>
-    </div>
-    <div class="justify-content-center header">
-      <ul class="navbar-nav">
-        <li class="nav-item active">
-          <% if logged_in? %>
-            <%= link_to "ホーム",current_user, {:class => "nav-link text-dark"}%>
-          <% elsif financial_planner_logged_in?%>
-            <%= link_to "ホーム",current_fp, {:class => "nav-link text-dark"}%>
-          <% else %>
-            <a class="nav-link text-dark" href="/">ホーム</a>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "診断", diagnostics_index_path, {:class => "nav-link text-dark"}%>
-        </li>
+  <div>
+    <% if logged_in? %>
+      <%= link_to "FP App", current_user, {:class => "nav-brand text-dark"}%>
+    <% elsif financial_planner_logged_in?%>
+      <%= link_to "FP App", current_financial_planner, {:class => "nav-brand text-dark"}%>
+    <% else %>
+      <a class="nav-link text-dark" href="/">FP App</a>
+    <% end %>
+  </div>
+  <div class="justify-content-center header">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
         <% if logged_in? %>
-          <li class="nav-item">
-            <%= link_to "相談予約", reservations_index_path, {:class => "nav-link text-dark"}%>
+          <%= link_to "ホーム", current_user, {:class => "nav-link text-dark"}%>
+        <% elsif financial_planner_logged_in?%>
+          <%= link_to "ホーム", current_financial_planner, {:class => "nav-link text-dark"}%>
+        <% else %>
+          <a class="nav-link text-dark" href="/">ホーム</a>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to "診断", diagnostics_index_path, {:class => "nav-link text-dark"}%>
+      </li>
+      <% if logged_in? %>
+        <li class="nav-item">
+          <%= link_to "相談予約", reservations_index_path, {:class => "nav-link text-dark"}%>
+        </li>
+      <% end%>
+      <% if financial_planner_logged_in?%>
+        <li class="nav-item">
+          <%= link_to "勤怠登録", new_schedule_path , {:class => "nav-link text-dark"}%>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div class="justify-content-end">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <% if logged_in? %>
+          <li class="btn btn-success">
+            <%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete } %>
           </li>
         <% end%>
         <% if financial_planner_logged_in?%>
           <li class="nav-item">
             <%= link_to "勤怠登録", new_schedule_path , {:class => "nav-link text-dark"}%>
           </li>
+        <% else %>
+          <a class="btn btn-success" type="button" href="/login">個人向けログイン</a>
+          <a class="btn btn-success" type="button" href="/fplogin">FP向けログイン</a>
         <% end %>
       </ul>
     </div>
