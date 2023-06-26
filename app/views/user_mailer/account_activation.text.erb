@@ -1,5 +1,10 @@
-Hi <%= @user.name %>,
+<h1>FP App</h1>
 
-Welcome to the Sample App! Click on the link below to activate your account:
+<p>初めまして！ <%= @user.name %>様！</p>
+
+<p>
+ご登録されたメールアドレスに、ユーザー有効化のリンクを送らせていただきました！
+以下のリンクからアクセスしてください！
+</p>
 
 <%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
