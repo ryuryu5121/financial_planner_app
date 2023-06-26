@@ -45,4 +45,14 @@ module ReservationsHelper
   def check_date_before_today(day)
     day < Date.today
   end
+
+  def check_saturday(day, time)
+    if day == "土"
+      !Time.parse(time).between?(Time.parse("11:00"), Time.parse("15:00"))
+    end
+  end
+
+  def check_sunday(day)
+    day == "日"
+  end
 end

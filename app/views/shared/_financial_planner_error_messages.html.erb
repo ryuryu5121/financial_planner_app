@@ -1,7 +1,7 @@
 <% if @financial_planner.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= pluralize(@financial_planner.errors.count, "error") %>.
+      <%= @financial_planner.errors.count %> 件のエラーが発生しました
     </div>
     <ul>
       <% @financial_planner.errors.full_messages.each do |msg| %>
