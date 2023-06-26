@@ -3,7 +3,7 @@
     <%= link_to t('simple_calendar.previous', default: '前週'), calendar.url_for_previous_view %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
     <%= link_to t('simple_calendar.next', default: '翌週'), calendar.url_for_next_view %>
-    <% reservations = Reservation.fp_reservations(@choice_fp) %>
+    <% reservations = Reservation.financial_planner_reservations(@choice_financial_planner) %>
   </div>
   <table class="table table-hover">
     <thead>
@@ -32,7 +32,7 @@
                 <% if check_reservation(reservations, day, time) || !check_schedule(@select_fp_schedules, day, time) || check_date_before_today(day) || check_saturday(t('date.abbr_day_names')[day.wday], time) || check_sunday(t('date.abbr_day_names')[day.wday])%>
                   <%= '×' %>
                 <% else %>
-                  <%= link_to new_reservation_path(day: day, time: time, fp_id: @choice_fp) do %>
+                  <%= link_to new_reservation_path(day: day, time: time, financial_planner_id: @choice_financial_planner) do %>
                     <%= '○' %>
                   <% end %>
                 <% end %>
@@ -41,6 +41,7 @@
           </tr>
         <% end %>
       <% end %>
+      </tr>
     </tbody>
   </table>
 </div>
