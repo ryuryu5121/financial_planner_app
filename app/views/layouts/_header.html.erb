@@ -1,39 +1,42 @@
-<nav class="navbar navbar-expand-sm bg-orange mb-3 container-fluid fixed-top d-flex justify-content-between">
+<nav class="navbar navbar-expand-sm mb-3 container-fluid fixed-top d-flex justify-content-between <%= financial_planner_logged_in? ? "bg-blue" : "bg-orange" %>">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav4"
     aria-controls="navbarNav4" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div>
     <% if logged_in? %>
-      <%= link_to "FP App", current_user, {:class => "nav-brand text-dark"}%>
+      <%= link_to "FP App", current_user, {:class => "nav-brand text-color-gray-white"}%>
     <% elsif financial_planner_logged_in?%>
-      <%= link_to "FP App", current_financial_planner, {:class => "nav-brand text-dark"}%>
+      <%= link_to "FP App", current_financial_planner, {:class => "nav-brand text-color-gray-white"}%>
     <% else %>
-      <a class="nav-link text-dark" href="/">FP App</a>
+      <a class="nav-link text-color-gray-white" href="/">FP App</a>
     <% end %>
   </div>
   <div class="justify-content-center header">
     <ul class="navbar-nav">
       <li class="nav-item active">
         <% if logged_in? %>
-          <%= link_to "ホーム", current_user, {:class => "nav-link text-dark"}%>
+          <%= link_to "ホーム", current_user, {:class => "nav-link text-color-gray-white"}%>
         <% elsif financial_planner_logged_in?%>
-          <%= link_to "ホーム", current_financial_planner, {:class => "nav-link text-dark"}%>
+          <%= link_to "ホーム", current_financial_planner, {:class => "nav-link text-color-gray-white"}%>
         <% else %>
-          <a class="nav-link text-dark" href="/">ホーム</a>
+          <a class="nav-link text-color-gray-white" href="/">ホーム</a>
         <% end %>
       </li>
-      <li class="nav-item">
-        <%= link_to "診断", diagnostics_index_path, {:class => "nav-link text-dark"}%>
-      </li>
+      <% if financial_planner_logged_in? %>
+      <% else %>
+        <li class="nav-item">
+          <%= link_to "診断", diagnostics_index_path, {:class => "nav-link text-color-gray-white"}%>
+        </li>
+      <% end %>
       <% if logged_in? %>
         <li class="nav-item">
-          <%= link_to "相談予約", reservations_index_path, {:class => "nav-link text-dark"}%>
+          <%= link_to "相談予約", reservations_index_path, {:class => "nav-link text-color-gray-white"}%>
         </li>
       <% end%>
       <% if financial_planner_logged_in?%>
         <li class="nav-item">
-          <%= link_to "勤怠登録", new_schedule_path , {:class => "nav-link text-dark"}%>
+          <%= link_to "勤怠登録", new_schedule_path , {:class => "nav-link text-color-gray-white"}%>
         </li>
       <% end %>
     </ul>
@@ -42,16 +45,16 @@
     <ul class="navbar-nav">
       <li class="nav-item active">
         <% if logged_in? %>
-          <li class="btn btn-success">
-            <%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete } %>
+          <li class="btn btn-green">
+            <%= link_to "ログアウト", logout_path, data: { "turbo-method": :delete }, :class => "text-color-gray-white" %>
           </li>
         <% elsif financial_planner_logged_in? %>
-          <li class="btn btn-success">
-            <%= link_to "ログアウト", fplogout_path, data: { "turbo-method": :delete } %>
+          <li class="btn btn-green">
+            <%= link_to "ログアウト", fplogout_path, data: { "turbo-method": :delete }, :class => "text-color-gray-white" %>
           </li>
         <% else %>
-          <a class="btn btn-success" type="button" href="/login">個人向けログイン</a>
-          <a class="btn btn-success" type="button" href="/fplogin">FP向けログイン</a>
+          <a class="btn btn-green text-color-gray-white" type="button" href="/login">個人向けログイン</a>
+          <a class="btn btn-green text-color-gray-white" type="button" href="/fplogin">FP向けログイン</a>
         <% end %>
       </li>
     </ul>
