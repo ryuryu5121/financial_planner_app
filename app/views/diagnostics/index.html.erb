@@ -74,14 +74,8 @@
       </div>
 
     <% end %>
-    <% if logged_in? %>
-      <div class="col-12 text-right">
-        <%= link_to "戻る", current_user %>
-      </div>
-    <% else %>
-      <div class="col-12 text-right">
-        <%= link_to '戻る', '/' %>
-      </div>
-    <% end %>
+    <div class="col-12 text-right">
+      <%= link_to '戻る', '/' %>
+    </div>
   </div>
 </div>
