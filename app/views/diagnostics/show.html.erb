@@ -9,20 +9,20 @@
           平均と比較して<%= @count %>項目に問題がありました
         </h3>
         <h3 class="card-title py-3 row justify-content-center">
-          いますぐFinancial Plannerに相談しましょう!
+          いますぐファイナンシャルプランナーに相談しましょう!
         </h3>
       <% else %>
         <h3 class="card-title py-3  row justify-content-center">
           あなたの経済状況は素晴らしいです！！
         </h3>
         <h3 class="card-title py-3 row justify-content-center">
-          今後の不安を解決しませんか？Financial Plannerに相談しましょう!
+          今後の不安を解決しませんか？ファイナンシャルプランナーに相談しましょう!
         </h3>
       <% end %>
       <% if current_user%>
-        <%= link_to "reservation", reservations_index_path, class: 'btn btn-primary mx-auto d-block col-3' %>
+        <%= link_to "ファイナンシャルプランナーに相談する", reservations_index_path, class: 'btn btn-primary mx-auto d-block col-3' %>
       <% else %>
-        <%= link_to "sign up", signup_path, class: 'btn btn-primary mx-auto d-block col-3' %>
+        <%= link_to "会員登録を行う", signup_path, class: 'btn btn-primary mx-auto d-block col-3' %>
       <% end %>
     </div>
   </div>
