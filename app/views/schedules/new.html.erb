@@ -5,11 +5,11 @@
       <table class="date-table">
         <tr>
           <th>開始日時</th>
-          <td>
-            <label class="cal-wrap">
+          <td class="d-flex justify-content-end align-items-center">
+            <div>
               <%= f.date_field :day, { class: "cal datepicker", value: Date.tomorrow, required: "required" } %>
-            </label>
-            <%= f.time_select :start_time, { start_hour:10, end_hour: 18, minute_step: 30, use_month_numbers: true}, { class: "time-select" } %>
+              <%= f.time_select :start_time, { start_hour:10, end_hour: 18, minute_step: 30, use_month_numbers: true}, { class: "time-select" } %>
+            </div>
           </td>
         </tr>
         <tr>
