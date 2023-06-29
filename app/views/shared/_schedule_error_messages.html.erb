@@ -1,7 +1,7 @@
 <% if @schedule.errors.any? %>
   <div id="error_explanation">
     <div class="alert alert-danger">
-      The form contains <%= pluralize(@schedule.errors.count, "error") %>.
+      <%= @schedule.errors.count %>件のエラーが発生しました
     </div>
     <ul>
       <% @schedule.errors.full_messages.each do |msg| %>
