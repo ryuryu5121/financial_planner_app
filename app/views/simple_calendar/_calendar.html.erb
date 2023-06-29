@@ -1,33 +1,55 @@
 <div class="simple-calendar">
   <div class="calendar-heading">
-    <%= link_to t('simple_calendar.previous', default: 'Previous'), calendar.url_for_previous_view %>
+    <%= link_to t('simple_calendar.previous', default: '先日'), calendar.url_for_previous_view %>
     <span class="calendar-title"><%= t('date.month_names')[start_date.month] %> <%= start_date.year %></span>
-    <%= link_to t('simple_calendar.next', default: 'Next'), calendar.url_for_next_view %>
+    <%= link_to t('simple_calendar.next', default: '翌日'), calendar.url_for_next_view %>
+    <% schedules = Schedule.financial_planner_schedule(@current_financial_planner) %>
+    <% reservations = Reservation.financial_planner_reservations(@current_financial_planner) %>
+    <%= "⚪︎:予約が入っています　"%>
+    <%= "△:予約は入っていません　"%>
+    <%= "◻︎:相談枠が登録されていません　"%>
+    <%= "×:相談不可時間帯です　"%>
   </div>
-
-  <table class="table table-striped">
+  <table class="table table-hover">
     <thead>
       <tr>
+        <th>時間</th>
         <% date_range.slice(0, 7).each do |day| %>
           <th><%= t('date.abbr_day_names')[day.wday] %></th>
         <% end %>
       </tr>
     </thead>
-
     <tbody>
       <% date_range.each_slice(7) do |week| %>
-        <%= content_tag :tr, class: calendar.tr_classes_for(week) do %>
+        <tr>
+          <td></td>
           <% week.each do |day| %>
             <%= content_tag :td, class: calendar.td_classes_for(day) do %>
-              <% if defined?(Haml) && respond_to?(:block_is_haml?) && block_is_haml?(passed_block) %>
-                <% capture_haml(day, sorted_events.fetch(day, []), &passed_block) %>
-              <% else %>
                 <% passed_block.call day, sorted_events.fetch(day, []) %>
-              <% end %>
             <% end %>
           <% end %>
+        </tr>
+        <% times.each do |time| %>
+          <tr>
+            <td><%= time %></td>
+            <% week.each do |day| %>
+              <td>
+                <% if check_saturday(t('date.abbr_day_names')[day.wday], time) || check_sunday(t('date.abbr_day_names')[day.wday]) %>
+                  <%= '×' %>
+                <% elsif check_reservation(reservations, day, time) %>
+                    <%= '○' %>
+                <% elsif !is_reservable_schedule?(schedules, day, time) %>
+                  <%= '◻︎'%>
+                <% else %>
+                  <%= '△'%>
+                <% end %>
+              </td>
+            <% end %>
+          </tr>
         <% end %>
       <% end %>
+      </tr>
     </tbody>
   </table>
 </div>
+

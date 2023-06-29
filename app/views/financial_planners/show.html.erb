@@ -1,12 +1,18 @@
 <h1>
   <%= current_financial_planner.name %>
 </h1>
-<div class="d-flex justify-content-center">
+<%= month_calendar events: @financial_planner_all_reservations do |date, reservations|%>
+  <%= date.day %>
+<% end %>
+<div class="d-flex justify-content-center mt-5">
   <div class="history-btn <%= "select" if @status == "future" || @status == nil%>">
     <%= link_to "今後の予定", financial_planner_path(@financial_planner,{status: "future"})%>
   </div>
   <div class="history-btn <%= "select" if @status == "finished"%>">
     <%= link_to "終了済み", financial_planner_path(@financial_planner,{status: "finished"})%>
+  </div>
+  <div class="history-btn <%= "select" if @status == "schedule"%>">
+    <%= link_to "登録済み", financial_planner_path(@financial_planner,{status: "schedule"})%>
   </div>
 </div>
 <% if @status == "future" || @status == nil%>
@@ -21,7 +27,10 @@
       <%= render partial: 'financial_planner_reservation', collection: @financial_planner_finished_reservations %>
     </div>
   </div>
-<% end %>
-<%= month_calendar events: @financial_planner_all_reservations do |date, reservations|%>
-  <%= date.day %>
+<% elsif @status == "schedule"%>
+<div class="mt-5">
+  <%= calendar events: @financial_planner_all_reservations do |date, reservations|%>
+    <%= date.day %>
+  <% end %>
+</div>
 <% end %>

@@ -18,4 +18,8 @@ class Schedule < ApplicationRecord
       errors.add(:day, "に誤りがあります。本日より先の日程でご登録をお願いします")
     end
   end
+
+  def self.financial_planner_schedule(financial_planners_id)
+    Schedule.all.where(FP_id: financial_planners_id)
+  end
 end
