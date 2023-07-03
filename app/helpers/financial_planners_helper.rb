@@ -11,4 +11,12 @@ module FinancialPlannersHelper
       end
     end
   end
+
+  def is_reservable_schedule?(schedules, day, time)
+    select_day = schedules.where(day: day)
+    select_day_count = select_day.count
+    if (select_day_count == 1)
+      Time.parse(time).between?(Time.parse(select_day[0].start_time.strftime("%H:%M").to_s), Time.parse(select_day[0].end_time.strftime("%H:%M").to_s))
+    end
+  end
 end

@@ -9,7 +9,7 @@ class FinancialPlannersController < ApplicationController
     @financial_planner_future_reservations = Reservation.where(fp_id: current_financial_planner.id).where(day: (Date.current)..(Date.current.since(3.month)))
     @financial_planner_finished_reservations = Reservation.where(fp_id: current_financial_planner.id).where("day < ?", Date.current)
     @financial_planner_all_reservations = Reservation.where(fp_id: current_financial_planner.id)
-    @select_fp_schedules = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: current_financial_planner.id).order(day: :desc)
+    @select_financial_planner_schedules = Reservation.all.where(day: (Date.current)..(Date.current.since(3.month))).where(fp_id: current_financial_planner.id).order(day: :desc)
   end
 
   def create

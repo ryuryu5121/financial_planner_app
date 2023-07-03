@@ -4,18 +4,50 @@ class Schedule < ApplicationRecord
   validate :start_time, :date_cannot_be_before_start_time
   validates :day, presence: true
   validate :day, :day_cannot_be_before_today
+  validate :start_time, :start_time_can_be_every_thirty_minutes
+  validate :end_time, :end_time_can_be_every_thirty_minutes
+  validate :start_time, :start_time_cannot_be_earlier_than_10_and_later_than_18
+  validate :end_time, :end_time_cannot_be_earlier_than_10_and_later_than_18
 
   private
 
   def date_cannot_be_before_start_time
     if start_time >= end_time
-      errors.add(:date, "開始時刻は終了時刻以前に設定してください")
+      errors.add(:date, "は終了時刻より前の時間に設定してください")
     end
   end
 
   def day_cannot_be_before_today
     if day <= Date.today
-      errors.add(:day, "ご指定の日程では予約できません。本日より先の日程にご予約ください")
+      errors.add(:day, "に誤りがあります。本日より先の日程でご登録をお願いします")
+    end
+  end
+
+  def self.financial_planner_schedule(financial_planners_id)
+    Schedule.all.where(FP_id: financial_planners_id)
+  end
+
+  def start_time_can_be_every_thirty_minutes
+    if start_time.min != 00 && start_time.min != 30
+      errors.add(:start_time, "に誤りがあります。適切な時刻を入力してください")
+    end
+  end
+
+  def end_time_can_be_every_thirty_minutes
+    if end_time.min != 00 && end_time.min != 30
+      errors.add(:end_time, "に誤りがあります。適切な時刻を入力してください")
+    end
+  end
+
+  def start_time_cannot_be_earlier_than_10_and_later_than_18
+    if start_time.hour < 10 || start_time.hour > 18
+      errors.add(:start_time, "に誤りがあります。適切な時刻を入力してください")
+    end
+  end
+
+  def end_time_cannot_be_earlier_than_10_and_later_than_18
+    if end_time.hour < 10 || end_time.hour > 18
+      errors.add(:end_time, "に誤りがあります。適切な時刻を入力してください")
     end
   end
 end
