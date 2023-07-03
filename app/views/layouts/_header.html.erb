@@ -20,7 +20,7 @@
         <% elsif financial_planner_logged_in?%>
           <%= link_to "ホーム", current_financial_planner, {:class => "nav-link text-color-gray-white"}%>
         <% else %>
-          <a class="nav-link text-color-gray-white" href="/">ホーム</a>
+          <a class="nav-link text-color-gray-white m-change" href="/">ホーム</a>
         <% end %>
       </li>
       <% if financial_planner_logged_in? %>
