@@ -12,7 +12,7 @@
     <%= link_to "終了済み", financial_planner_path(@financial_planner,{status: "finished"})%>
   </div>
   <div class="history-btn <%= "select" if @status == "schedule"%>">
-    <%= link_to "登録済み", financial_planner_path(@financial_planner,{status: "schedule"})%>
+    <%= link_to "詳細情報", financial_planner_path(@financial_planner,{status: "schedule"})%>
   </div>
 </div>
 <% if @status == "future" || @status == nil%>
